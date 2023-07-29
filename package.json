@@ -1,0 +1,17 @@
+{
+  "name": "just-weather",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "parcel:start": "parcel index.html",
+    "parcel:build": "parcel build index.html"
+  },
+  "author": "Rae",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.9.3"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.9.3"
+  }
+}
