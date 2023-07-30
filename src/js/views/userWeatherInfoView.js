@@ -1,0 +1,75 @@
+import weatherSVGs from "../weatherSVGs.js";
+import weatherInfoView from "./weatherInfoView.js";
+
+class UserWeatherInfoView extends weatherInfoView {
+
+    _generateMarkup() {
+
+        const date = new Date(this._data.localTime);
+        const options = {
+            hour: 'numeric',
+            minute: 'numeric',
+        };
+
+        const weekday = new Intl.DateTimeFormat('en-us', { weekday: 'long'}).format(date)
+        const time = new Intl.DateTimeFormat('en-us', options).format(date);
+        const localTime = `${weekday}, ${time}`;
+
+        return `
+            <div class="left-box flex-2 left">
+                <div class="current-temperature">${Math.round(this._data.tempC)}°</div>
+                <div class="location">
+                    <div class="location-country">
+                        <div class="country-flag">
+                            <img src="${this._data.flag}" alt="">
+                        </div>
+                        <span class="country-name">${this._data.country}</span>
+                    </div>
+                    <div class="weather-type">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.61 19.9999C17.95 20.0099 19.24 19.5099 20.23 18.6099C23.5 15.7499 21.75 10.0099 17.44 9.46995C15.9 0.129949 2.42998 3.66995 5.61998 12.5599" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M7.28011 12.97C6.75011 12.7 6.16011 12.56 5.57011 12.57C0.910109 12.9 0.920108 19.68 5.57011 20.01" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M15.8201 9.88998C16.3401 9.62998 16.9001 9.48998 17.4801 9.47998" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M12.9955 18.5H13.0045" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8.9955 18.5H9.0045" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10.9955 21.5H11.0045" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="weather-type-text">${this._data.weatherType}</span>
+                    </div>
+                </div>
+                <div class="location-date">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C17.52 2 22 6.48 22 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15.71 15.18L12.61 13.33C12.07 13.01 11.63 12.24 11.63 11.61V7.51001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span class="date">${localTime}</span>
+                </div>
+            </div>
+            <div class="weather-illust flex-3 center">
+                <div class="weather">
+                    <img src="${weatherSVGs.dayEveningClear}">
+                </div>
+            </div>
+            <div class="right-box flex-2 right">
+                <div class="weather-details-contaienr">
+                    <div class="weather-details">
+                        <div class="status">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="26" height="26" x="0" y="0" viewBox="0 0 511.448 511.448" style="enable-background: new 0 0 512 512" xml:space="preserve" class=""><g><path d="M344.556 112.216C318.38 78.84 291.34 44.344 269.516 7.32c-5.76-9.76-21.824-9.76-27.552 0-21.856 37.024-48.896 71.52-75.072 104.896-53.056 67.68-103.168 131.616-103.168 207.232 0 105.888 86.112 192 192 192s192-86.112 192-192c0-75.616-50.112-139.552-103.168-207.232z" style="" fill="#2196f3" data-original="#2196f3" class=""></path><path d="M207.724 287.448c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48zm0-64c-8.832 0-16 7.168-16 16s7.168 16 16 16 16-7.168 16-16-7.168-16-16-16zM303.724 447.448c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48zm0-64c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zM175.724 415.448a16.07 16.07 0 0 1-11.328-4.672c-6.24-6.24-6.24-16.384 0-22.624l160-160c6.24-6.24 16.384-6.24 22.624 0s6.24 16.384 0 22.624l-160 160a15.943 15.943 0 0 1-11.296 4.672z" style="" fill="#fafafa" data-original="#fafafa" class=""></path></g></svg>
+                            <span class="status-title">${this._data.humidity}%</span>
+                        </div>
+                        <div class="status">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="26" height="26" x="0" y="0" viewBox="0 0 64 64" style="enable-background: new 0 0 512 512" xml:space="preserve" class=""><g><path d="M3 27s12-8 29-4 29-2 29-2-1.51 18.5-28 9c-5.9-2.117-11-5-30-3Z" style="" fill="#92cdde" data-original="#92cdde" class=""></path><path d="M9 32s11-4 24 3c8.805 4.741 22 1 22 1s-13 13-27 3c-3.913-2.795-10-7-19-7Z" style="" fill="#92cdde" data-original="#92cdde" class=""></path><path d="M45.75 20.749a26.97 26.97 0 0 1-5.975-.774 65.376 65.376 0 0 0-23.6-.991l-.358-1.967a66.151 66.151 0 0 1 24.4 1.008c6.2 1.431 9.079.471 10.407-.584A3.48 3.48 0 0 0 52 15a1 1 0 0 1 .02-.2 3.563 3.563 0 0 0-.61-2.631A4.246 4.246 0 0 0 48 11c-4.781 0-4.992 2.7-5 3.013L41 14c0-.05.08-5 7-5 2.253 0 3.924.645 4.966 1.916A5.524 5.524 0 0 1 54 15.106a5.519 5.519 0 0 1-2.119 3.9 9.626 9.626 0 0 1-6.131 1.743ZM50 57c-6.92 0-7-4.95-7-5h2c.008.3.219 3 5 3a3.961 3.961 0 0 0 3.18-1.178 5.181 5.181 0 0 0 .834-3.658A1 1 0 0 1 54 50a2.473 2.473 0 0 0-1.056-1.7c-1.283-.981-4.182-1.832-10.719-.323-13.417 3.091-24.5-8.791-24.962-9.3l1.473-1.352c.107.115 10.766 11.537 23.039 8.7 5.927-1.368 10.122-1.117 12.467.749A4.4 4.4 0 0 1 56 49.908a7.063 7.063 0 0 1-1.291 5.207A5.849 5.849 0 0 1 50 57Z" style="" fill="#418abd" data-original="#418abd" class=""></path><path d="M33 52c-7.292 0-15.32-6.951-15.658-7.247l1.316-1.506C18.735 43.314 26.463 50 33 50ZM9.511 17.859l-1.026-1.716C8.7 16.015 13.862 13 26 13v2c-11.5 0-16.44 2.831-16.489 2.859ZM28 13h2v2h-2z" style="" fill="#418abd" data-original="#418abd" class=""></path><path d="M11 37h2v2h-2zM11 41h2v2h-2zM9 39h2v2H9zM13 39h2v2h-2zM36 53h2v2h-2zM36 57h2v2h-2zM34 55h2v2h-2zM38 55h2v2h-2zM35 7h2v2h-2zM35 11h2v2h-2zM33 9h2v2h-2zM37 9h2v2h-2zM8 7h2v2H8zM8 11h2v2H8zM6 9h2v2H6zM10 9h2v2h-2z" style="" fill="#92cdde" data-original="#92cdde" class=""></path><path d="M46.406 29.605a26.782 26.782 0 0 1-5.616-.627l.42-1.956c13.118 2.809 17.869-5.423 17.916-5.507l1.748.97c-.046.083-4.095 7.12-14.468 7.12Z" style="" fill="#418abd" data-original="#418abd" class=""></path></g></svg>
+                            <span class="status-title">${Math.round(this._data.windSpeed)} km/h</span>
+                        </div>
+                        <div class="status">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="26" height="26" x="0" y="0" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve" class=""><g><g fill="#fdd83b"><path d="M256 67.293a10 10 0 0 1-10-10V10a10 10 0 0 1 20 0v47.293a10 10 0 0 1-10 10zM156.656 93.916a10 10 0 0 1-8.67-5L124.34 47.958a10 10 0 1 1 17.32-10l23.647 40.957a10 10 0 0 1-8.651 15zM83.9 166.648a9.955 9.955 0 0 1-4.99-1.341L37.958 141.66a10 10 0 1 1 10-17.32l40.956 23.646a10 10 0 0 1-5.01 18.662zM57.293 266H10a10 10 0 0 1 0-20h47.293a10 10 0 1 1 0 20zM502 266h-47.293a10 10 0 0 1 0-20H502a10 10 0 0 1 0 20zM428.1 166.648a10 10 0 0 1-5.01-18.662l40.956-23.646a10 10 0 1 1 10 17.32l-40.956 23.647a9.953 9.953 0 0 1-4.99 1.341zM355.344 93.916a10 10 0 0 1-8.651-15l23.647-40.958a10 10 0 1 1 17.32 10l-23.646 40.957a10 10 0 0 1-8.67 5.001z" fill="#fdd83b" data-original="#fdd83b"></path></g><path fill="#80cdf6" d="M415.167 460.75H276a10 10 0 0 1 0-20h139.167a10 10 0 0 1 0 20zM236.623 460.75H96.833a10 10 0 1 1 0-20h139.79a10 10 0 1 1 0 20zM345.583 409.5H166.417a10 10 0 0 1 0-20h179.166a10 10 0 1 1 0 20zM283.181 512h-54.362a10 10 0 1 1 0-20h54.362a10 10 0 1 1 0 20z" data-original="#80cdf6"></path><path fill="#f9ae00" d="M405.151 257.377a149.151 149.151 0 1 0-267.419 90.873h236.536a148.488 148.488 0 0 0 30.883-90.873z" data-original="#f9ae00" class=""></path><path fill="#80cdf6" d="M469.042 358.25H42.958a10 10 0 1 1 0-20h426.084a10 10 0 0 1 0 20z" data-original="#80cdf6"></path><path fill="#ffffff" d="M256 190.918a10 10 0 0 0-10 10v68.061l-27.066-27.066a10 10 0 0 0-14.143 14.142l44.138 44.138a10 10 0 0 0 14.142 0l44.138-44.138a10 10 0 0 0-14.143-14.142L266 268.979v-68.061a10 10 0 0 0-10-10z" data-original="#ffffff" class=""></path></g></svg>
+                            <span class="status-title">${this._data.isDay ? this._data.sunset : this._data.sunrise}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+};
+
+export default new UserWeatherInfoView();
