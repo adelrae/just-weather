@@ -4,6 +4,9 @@ import { getJson } from "./helpers.js";
 export const state = {
     userLocationWeather: {
 
+    },
+    searchLocationWeather: {
+
     }
 };
 
@@ -52,19 +55,36 @@ export const userLocationWeather = async function() {
 
         state.userLocationWeather = createDataObject(weatherData);
 
-        state.userLocationWeather.flag = await countryInfo(state.userLocationWeather.country);
+        const cInfo = await countryInfo(state.userLocationWeather.country);
+        state.userLocationWeather.flag = cInfo.flags.png;
+        state.userLocationWeather.country = cInfo.alpha2Code;
 
     } catch (err) {
         console.error(err);
     }
 }
 
+// Search location weather
+export const searchLocationWeather = async function(query) {
+    try {
+        const data = await locationWeather(query);
+        state.searchLocationWeather = createDataObject(data);
+
+        const cInfo = await countryInfo(state.searchLocationWeather.country);
+        state.searchLocationWeather.flag = cInfo.flags.png;
+        state.searchLocationWeather.country = cInfo.alpha2Code;
+
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+
 // Country info
 const countryInfo = async function(country) {
     try {
         const data = await getJson(`${COUNTRIES_INFO_API}${country}`);
-        return data[0].flags.png;
-
+        return data[0];
     } catch (err) {
         console.error(err);
     }
