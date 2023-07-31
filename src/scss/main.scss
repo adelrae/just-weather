@@ -17,6 +17,7 @@
 
 $primary-co: #00A2FF;
 $black-co: #222A33;
+$white-co: #FCFCFC;
 $gray-co: #7f8596;
 
 $text-xs: 0.813rem;
@@ -63,7 +64,7 @@ body {
     line-height: 1.6;
     height: 100vh;
     overflow: hidden;
-    background-color: #FCFCFC;
+    background-color: $white-co;
 }
 
 /* Links styles */
@@ -122,6 +123,9 @@ svg {
 .flex-3 {
     flex: 3;
 }
+.flex-4 {
+    flex: 3.5;
+}
 
 button {
     cursor: pointer;
@@ -137,6 +141,20 @@ button, input {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $gray-co;
+    opacity: .2;
+
+    svg {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 /* ====================> UNIQUE CSS <====================*/
@@ -163,6 +181,7 @@ button, input {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
     
         .location {
             display: flex;
@@ -193,6 +212,7 @@ button, input {
         
             svg {
                 width: 22px;
+                height: 22px;
             }
         }
         .weather-type {
@@ -230,6 +250,7 @@ button, input {
                     
                     svg{
                         width: 26px;
+                        height: 26px;
         
                         path{
                             stroke-width: 2.2px;
