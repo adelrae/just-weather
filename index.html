@@ -31,6 +31,32 @@
                     </a>
                 </nav>
                 <div class="weather-info">
+                    <div class="loader">
+                        <svg version="1.1" id="L2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                            <circle fill="none" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" cx="50" cy="50" r="48"/>
+                            <line fill="none" stroke-linecap="round" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="85" y2="50.5">
+                                <animateTransform 
+                                    attributeName="transform" 
+                                    dur="2s"
+                                    type="rotate"
+                                    from="0 50 50"
+                                    to="360 50 50"
+                                    repeatCount="indefinite"
+                                />
+                            </line>
+                            <line fill="none" stroke-linecap="round" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="49.5" y2="74">
+                                <animateTransform 
+                                    attributeName="transform" 
+                                    dur="15s"
+                                    type="rotate"
+                                    from="0 50 50"
+                                    to="360 50 50"
+                                    repeatCount="indefinite"
+                                />
+                            </line>
+                        </svg>
+                    </div>
                     <div class="left-box flex-2 left">
                         <div class="current-temperature">17°</div>
                         <div class="location">
@@ -86,7 +112,7 @@
                 </div>
                 <form action="">
                     <div class="search-box">
-                        <input type="text" placeholder="Which City's weather do you wanna see?">
+                        <input type="text" placeholder="Which City's weather do you wanna see?" class="search-input">
                         <button class="search-btn">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11 20C15.9706 20 20 15.9706 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -98,5 +124,8 @@
             </div>
         </div>
     </div>
+    
+
+    
 </body>
 </html>
