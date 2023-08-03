@@ -38,7 +38,7 @@ ul, ol {
 
 body {
   color: #222a33;
-  background-color: #fcfcfc;
+  background: red;
   height: 100vh;
   font-family: inter-reg, sans-serif;
   font-size: .813rem;

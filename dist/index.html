@@ -1,1 +1,165 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" href="./favicon.9b8a022f.png"><link rel="stylesheet" href="./index.5353b705.css"><script type="module" src="./index.aef1eff7.js"></script><script defer type="module" src="./index.f136d88d.js"></script><title>JustWeather</title></head><body> <div id="app" class="h-w-full"> <div class="h-w-full main-content"> <div class="container"> <div class="flex-container"> <nav class="nav"> <a href="#" class="logo"> <svg width="36" height="36" fill="none"><circle cx="18" cy="18" r="18" fill="currentColor"/><path fill="url(#a)" fill-rule="evenodd" d="M20.389 24.333a6.667 6.667 0 1 0-6.202-9.117 4.682 4.682 0 1 0-1.505 9.117h6.835c.102 0 .202-.008.3-.024.189.016.38.024.572.024Zm-4.231-1.514-.016-.013-.03.033.046-.02Z" clip-rule="evenodd"/><defs><linearGradient id="a" x1="23.215" x2="-.972" y1="11.791" y2="37.168" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#FCFCFD" stop-opacity=".75"/></linearGradient></defs></svg> <span>JustWeather</span> </a> </nav> <div class="weather-info">   </div> <form> <div class="search-box"> <input type="text" placeholder="Which City's weather do you wanna see?" class="search-input"> <button class="search-btn"> <svg width="24" height="24" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 20a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM18.93 20.69c.53 1.6 1.74 1.76 2.67.36.85-1.28.29-2.33-1.25-2.33-1.14-.01-1.78.88-1.42 1.97Z"/></svg> </button> </div> </form> </div> </div> </div>  </div> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/favicon.c3d66290.png">
+    <link rel="stylesheet" href="/index.b10d73a7.css">
+
+    <script defer="" src="/index.e37f48ea.js"></script>
+
+    <title>JustWeather</title>
+</head>
+<body>
+    <div id="app" class="h-w-full">
+        <div class="main-content h-w-full">
+            <div class="container">
+                <div class="flex-container">
+                    <nav class="nav">
+                        <a href="#" class="logo">
+                            <svg width="36" height="36" viewbox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="18" cy="18" r="18" fill="currentColor"></circle>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.389 24.3334C24.0709 24.3334 27.0556 21.3486 27.0556 17.6667C27.0556 13.9848 24.0709 11 20.389 11C17.5724 11 15.1638 12.7467 14.1872 15.2159C13.7149 15.0557 13.2087 14.9688 12.6822 14.9688C10.0963 14.9688 8 17.0651 8 19.651C8 22.2369 10.0963 24.3332 12.6822 24.3332L19.5174 24.3334C19.6186 24.3334 19.7189 24.3252 19.8174 24.3092C20.0058 24.3252 20.1964 24.3334 20.389 24.3334ZM16.1578 22.8189C16.1526 22.8145 16.1473 22.8102 16.1421 22.8058C16.1319 22.817 16.1217 22.828 16.1115 22.8391L16.1578 22.8189Z" fill="url(#paint0_linear_5605_4)"></path>
+                                <defs>
+                                <lineargradient id="paint0_linear_5605_4" x1="23.2153" y1="11.7915" x2="-0.972167" y2="37.168" gradientunits="userSpaceOnUse">
+                                <stop stop-color="white"></stop>
+                                <stop offset="1" stop-color="#FCFCFD" stop-opacity="0.75"></stop>
+                                </lineargradient>
+                                </defs>
+                            </svg>
+                            <span>JustWeather</span>
+                        </a>
+                    </nav>
+                    <div class="weather-info">
+                        <!-- <div class="loader">
+                            <svg version="1.1" id="L2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                                <circle fill="none" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" cx="50" cy="50" r="48"/>
+                                <line fill="none" stroke-linecap="round" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="85" y2="50.5">
+                                    <animateTransform 
+                                        attributeName="transform" 
+                                        dur="2s"
+                                        type="rotate"
+                                        from="0 50 50"
+                                        to="360 50 50"
+                                        repeatCount="indefinite"
+                                    />
+                                </line>
+                                <line fill="none" stroke-linecap="round" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="49.5" y2="74">
+                                    <animateTransform 
+                                        attributeName="transform" 
+                                        dur="15s"
+                                        type="rotate"
+                                        from="0 50 50"
+                                        to="360 50 50"
+                                        repeatCount="indefinite"
+                                    />
+                                </line>
+                            </svg>
+                        </div> -->
+                        <!-- <div class="left-box flex-2 left">
+                            <div class="current-temperature">17°</div>
+                            <div class="location">
+                                <div class="location-country">
+                                    <div class="country-flag">
+                                        <img src="/src/images/Flag-Switzerland.webp" alt="">
+                                    </div>
+                                    <span class="country-name">Switzerland</span>
+                                </div>
+                                <div class="weather-type">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.61 19.9999C17.95 20.0099 19.24 19.5099 20.23 18.6099C23.5 15.7499 21.75 10.0099 17.44 9.46995C15.9 0.129949 2.42998 3.66995 5.61998 12.5599" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.28011 12.97C6.75011 12.7 6.16011 12.56 5.57011 12.57C0.910109 12.9 0.920108 19.68 5.57011 20.01" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M15.8201 9.88998C16.3401 9.62998 16.9001 9.48998 17.4801 9.47998" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.9955 18.5H13.0045" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8.9955 18.5H9.0045" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10.9955 21.5H11.0045" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span class="weather-type-text">Snowy</span>
+                                </div>
+                            </div>
+                            <div class="location-date">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C17.52 2 22 6.48 22 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15.71 15.18L12.61 13.33C12.07 13.01 11.63 12.24 11.63 11.61V7.51001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="date">Monday, 10:34 PM</span>
+                            </div>
+                        </div>
+                        <div class="weather-illust flex-3 center">
+                            <div class="weather">
+                                <img src="/src/images/weather/morning-day-snow.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="right-box flex-2 right">
+                            <div class="weather-details-contaienr">
+                                <div class="weather-details">
+                                    <div class="status">
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="26" height="26" x="0" y="0" viewBox="0 0 511.448 511.448" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M344.556 112.216C318.38 78.84 291.34 44.344 269.516 7.32c-5.76-9.76-21.824-9.76-27.552 0-21.856 37.024-48.896 71.52-75.072 104.896-53.056 67.68-103.168 131.616-103.168 207.232 0 105.888 86.112 192 192 192s192-86.112 192-192c0-75.616-50.112-139.552-103.168-207.232z" style="" fill="#2196f3" data-original="#2196f3" class=""></path><path d="M207.724 287.448c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48zm0-64c-8.832 0-16 7.168-16 16s7.168 16 16 16 16-7.168 16-16-7.168-16-16-16zM303.724 447.448c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48zm0-64c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zM175.724 415.448a16.07 16.07 0 0 1-11.328-4.672c-6.24-6.24-6.24-16.384 0-22.624l160-160c6.24-6.24 16.384-6.24 22.624 0s6.24 16.384 0 22.624l-160 160a15.943 15.943 0 0 1-11.296 4.672z" style="" fill="#fafafa" data-original="#fafafa" class=""></path></g></svg>
+                                        <span class="status-title">23%</span>
+                                    </div>
+                                    <div class="status">
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="26" height="26" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M3 27s12-8 29-4 29-2 29-2-1.51 18.5-28 9c-5.9-2.117-11-5-30-3Z" style="" fill="#92cdde" data-original="#92cdde" class=""></path><path d="M9 32s11-4 24 3c8.805 4.741 22 1 22 1s-13 13-27 3c-3.913-2.795-10-7-19-7Z" style="" fill="#92cdde" data-original="#92cdde" class=""></path><path d="M45.75 20.749a26.97 26.97 0 0 1-5.975-.774 65.376 65.376 0 0 0-23.6-.991l-.358-1.967a66.151 66.151 0 0 1 24.4 1.008c6.2 1.431 9.079.471 10.407-.584A3.48 3.48 0 0 0 52 15a1 1 0 0 1 .02-.2 3.563 3.563 0 0 0-.61-2.631A4.246 4.246 0 0 0 48 11c-4.781 0-4.992 2.7-5 3.013L41 14c0-.05.08-5 7-5 2.253 0 3.924.645 4.966 1.916A5.524 5.524 0 0 1 54 15.106a5.519 5.519 0 0 1-2.119 3.9 9.626 9.626 0 0 1-6.131 1.743ZM50 57c-6.92 0-7-4.95-7-5h2c.008.3.219 3 5 3a3.961 3.961 0 0 0 3.18-1.178 5.181 5.181 0 0 0 .834-3.658A1 1 0 0 1 54 50a2.473 2.473 0 0 0-1.056-1.7c-1.283-.981-4.182-1.832-10.719-.323-13.417 3.091-24.5-8.791-24.962-9.3l1.473-1.352c.107.115 10.766 11.537 23.039 8.7 5.927-1.368 10.122-1.117 12.467.749A4.4 4.4 0 0 1 56 49.908a7.063 7.063 0 0 1-1.291 5.207A5.849 5.849 0 0 1 50 57Z" style="" fill="#418abd" data-original="#418abd" class=""></path><path d="M33 52c-7.292 0-15.32-6.951-15.658-7.247l1.316-1.506C18.735 43.314 26.463 50 33 50ZM9.511 17.859l-1.026-1.716C8.7 16.015 13.862 13 26 13v2c-11.5 0-16.44 2.831-16.489 2.859ZM28 13h2v2h-2z" style="" fill="#418abd" data-original="#418abd" class=""></path><path d="M11 37h2v2h-2zM11 41h2v2h-2zM9 39h2v2H9zM13 39h2v2h-2zM36 53h2v2h-2zM36 57h2v2h-2zM34 55h2v2h-2zM38 55h2v2h-2zM35 7h2v2h-2zM35 11h2v2h-2zM33 9h2v2h-2zM37 9h2v2h-2zM8 7h2v2H8zM8 11h2v2H8zM6 9h2v2H6zM10 9h2v2h-2z" style="" fill="#92cdde" data-original="#92cdde" class=""></path><path d="M46.406 29.605a26.782 26.782 0 0 1-5.616-.627l.42-1.956c13.118 2.809 17.869-5.423 17.916-5.507l1.748.97c-.046.083-4.095 7.12-14.468 7.12Z" style="" fill="#418abd" data-original="#418abd" class=""></path></g></svg>
+                                        <span class="status-title">16 km/h</span>
+                                    </div>
+                                    <div class="status">
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="26" height="26" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g fill="#fdd83b"><path d="M256 67.293a10 10 0 0 1-10-10V10a10 10 0 0 1 20 0v47.293a10 10 0 0 1-10 10zM156.656 93.916a10 10 0 0 1-8.67-5L124.34 47.958a10 10 0 1 1 17.32-10l23.647 40.957a10 10 0 0 1-8.651 15zM83.9 166.648a9.955 9.955 0 0 1-4.99-1.341L37.958 141.66a10 10 0 1 1 10-17.32l40.956 23.646a10 10 0 0 1-5.01 18.662zM57.293 266H10a10 10 0 0 1 0-20h47.293a10 10 0 1 1 0 20zM502 266h-47.293a10 10 0 0 1 0-20H502a10 10 0 0 1 0 20zM428.1 166.648a10 10 0 0 1-5.01-18.662l40.956-23.646a10 10 0 1 1 10 17.32l-40.956 23.647a9.953 9.953 0 0 1-4.99 1.341zM355.344 93.916a10 10 0 0 1-8.651-15l23.647-40.958a10 10 0 1 1 17.32 10l-23.646 40.957a10 10 0 0 1-8.67 5.001z" fill="#fdd83b" data-original="#fdd83b"></path></g><path fill="#80cdf6" d="M415.167 460.75H276a10 10 0 0 1 0-20h139.167a10 10 0 0 1 0 20zM236.623 460.75H96.833a10 10 0 1 1 0-20h139.79a10 10 0 1 1 0 20zM345.583 409.5H166.417a10 10 0 0 1 0-20h179.166a10 10 0 1 1 0 20zM283.181 512h-54.362a10 10 0 1 1 0-20h54.362a10 10 0 1 1 0 20z" data-original="#80cdf6"></path><path fill="#f9ae00" d="M405.151 257.377a149.151 149.151 0 1 0-267.419 90.873h236.536a148.488 148.488 0 0 0 30.883-90.873z" data-original="#f9ae00" class=""></path><path fill="#80cdf6" d="M469.042 358.25H42.958a10 10 0 1 1 0-20h426.084a10 10 0 0 1 0 20z" data-original="#80cdf6"></path><path fill="#ffffff" d="M256 190.918a10 10 0 0 0-10 10v68.061l-27.066-27.066a10 10 0 0 0-14.143 14.142l44.138 44.138a10 10 0 0 0 14.142 0l44.138-44.138a10 10 0 0 0-14.143-14.142L266 268.979v-68.061a10 10 0 0 0-10-10z" data-original="#ffffff" class=""></path></g></svg>
+                                        <span class="status-title">06:58 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <form action="">
+                        <div class="search-box">
+                            <input type="text" placeholder="Which City's weather do you wanna see?" class="search-input">
+                            <button class="search-btn">
+                                <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11 20C15.9706 20 20 15.9706 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="alert-box">
+            <div class="alert-content">
+                <span class="alert-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_7_6620)">
+                        <path d="M12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>
+                        <path d="M12 21C14.21 21 16 16.97 16 12C16 7.03 14.21 3 12 3C9.79 3 8 7.03 8 12C8 16.97 9.79 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>
+                        <path d="M3 11.58C8.95 12.68 15.05 12.68 21 11.58" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_7_6620">
+                        <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </span>
+                <div class="alert-details">
+                    <div class="alert-title">Oops</div>
+                    <span class="alert-desc">Something is wrong with your connection!</span>
+                </div>
+            </div>
+            <button class="close-alert">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_7_6853)">
+                    <path d="M6 18L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 18L6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_7_6853">
+                    <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+            </button>
+        </div> -->
+    </div>
+</body>
+</html>
