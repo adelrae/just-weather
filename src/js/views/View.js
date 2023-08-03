@@ -1,12 +1,13 @@
 import weatherSVGs from "../weatherSVGs.js";
 import icons from 'url:../../images/icons.svg';
 
-export default class WeatherInfoView {
+export default class View {
     _data;
     _localTime;
     _curHour;
     _weatherTypeSvg;
     _weatherTypeIcon;
+    _alertBox = document.querySelector('.alert-box');
 
 
     _render(data) {
@@ -14,11 +15,13 @@ export default class WeatherInfoView {
 
         const markup = this._generateMarkup();
         this._clear();
+        this._alertBox.classList.add('hidden');
 
         this._parentElement.insertAdjacentHTML('afterbegin', markup);
     }
 
     _checkWeatherType(){
+        console.log(weatherSVGs);
         const weatherTypeText = this._data.weatherType.toLowerCase();
 
         if(this._data.isDay) {
@@ -47,9 +50,11 @@ export default class WeatherInfoView {
                 this._weatherTypeIcon = `${icons}#fogg-icon`;
             };
             if (weatherTypeText.includes('thundery')) {
+                this._weatherTypeSvg = weatherSVGs.morningDayThundery;
                 this._weatherTypeIcon = `${icons}#cloud-thunder-icon`;
             };
             if (weatherTypeText.includes('overcast')) {
+                this._weatherTypeSvg = weatherSVGs.overcast;
                 this._weatherTypeIcon = `${icons}#cloud-icon`;
             };
 

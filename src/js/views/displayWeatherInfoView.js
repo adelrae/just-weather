@@ -1,7 +1,7 @@
-import weatherInfoView from "./weatherInfoView.js";
+import View from "./View.js";
 import icons from 'url:../../images/icons.svg';
 
-class DisplayWeatherInfoView extends weatherInfoView {
+class DisplayWeatherInfoView extends View {
     _parentElement = document.querySelector('.weather-info');
 
     _generateMarkup() {

@@ -32,7 +32,7 @@ const locationWeather = async function(query) {
         return weatherData;
 
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 }
 
@@ -43,7 +43,7 @@ const userLocationCity = async function() {
         return data.city;
 
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 };
 
@@ -60,7 +60,7 @@ export const userLocationWeather = async function() {
         state.userLocationWeather.country = cInfo.alpha2Code;
 
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 }
 
@@ -75,7 +75,7 @@ export const searchLocationWeather = async function(query) {
         state.searchLocationWeather.country = cInfo.alpha2Code;
 
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 }
 
@@ -86,6 +86,6 @@ const countryInfo = async function(country) {
         const data = await getJson(`${COUNTRIES_INFO_API}${country}`);
         return data[0];
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 }
