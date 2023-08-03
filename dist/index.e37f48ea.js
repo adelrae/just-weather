@@ -657,16 +657,26 @@ var _displayWeatherInfoViewJs = require("./views/displayWeatherInfoView.js");
 var _displayWeatherInfoViewJsDefault = parcelHelpers.interopDefault(_displayWeatherInfoViewJs);
 var _searchInputViewJs = require("./views/searchInputView.js");
 var _searchInputViewJsDefault = parcelHelpers.interopDefault(_searchInputViewJs);
+var _displayAlertViewJs = require("./views/displayAlertView.js");
+var _displayAlertViewJsDefault = parcelHelpers.interopDefault(_displayAlertViewJs);
 const controlUserWeatherInfo = async function() {
-    (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
-    await _modelJs.userLocationWeather();
-    (0, _displayWeatherInfoViewJsDefault.default)._render(_modelJs.state.userLocationWeather);
+    try {
+        (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
+        await _modelJs.userLocationWeather();
+        (0, _displayWeatherInfoViewJsDefault.default)._render(_modelJs.state.userLocationWeather);
+    } catch (err) {
+        (0, _displayAlertViewJsDefault.default)._getErr(err);
+    }
 };
 const controlSearchInput = async function() {
-    (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
-    const query = (0, _searchInputViewJsDefault.default)._getQuery();
-    await _modelJs.searchLocationWeather(query);
-    (0, _displayWeatherInfoViewJsDefault.default)._render(_modelJs.state.searchLocationWeather);
+    try {
+        (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
+        const query = (0, _searchInputViewJsDefault.default)._getQuery();
+        await _modelJs.searchLocationWeather(query);
+        (0, _displayWeatherInfoViewJsDefault.default)._render(_modelJs.state.searchLocationWeather);
+    } catch (err) {
+        (0, _displayAlertViewJsDefault.default)._getErr(err);
+    }
 };
 const init = function() {
     controlUserWeatherInfo();
@@ -674,7 +684,7 @@ const init = function() {
 };
 init();
 
-},{"core-js/modules/esnext.array.last-index.js":"8cpHj","core-js/modules/esnext.array.last-item.js":"3KWUU","core-js/modules/esnext.composite-key.js":"3zsBr","core-js/modules/esnext.composite-symbol.js":"6P6E3","core-js/modules/esnext.map.delete-all.js":"84I4a","core-js/modules/esnext.map.every.js":"a0ie9","core-js/modules/esnext.map.filter.js":"8EHBg","core-js/modules/esnext.map.find.js":"kzunK","core-js/modules/esnext.map.find-key.js":"ipfV1","core-js/modules/esnext.map.from.js":"aMX7r","core-js/modules/esnext.map.group-by.js":"3AR1K","core-js/modules/esnext.map.includes.js":"3cPf4","core-js/modules/esnext.map.key-by.js":"czzPK","core-js/modules/esnext.map.key-of.js":"la1gU","core-js/modules/esnext.map.map-keys.js":"12CRV","core-js/modules/esnext.map.map-values.js":"fQehs","core-js/modules/esnext.map.merge.js":"5Qvm2","core-js/modules/esnext.map.of.js":"3WfcG","core-js/modules/esnext.map.reduce.js":"8ampn","core-js/modules/esnext.map.some.js":"eVX7K","core-js/modules/esnext.map.update.js":"agmCJ","core-js/modules/esnext.math.clamp.js":"fVCxt","core-js/modules/esnext.math.deg-per-rad.js":"16Ig2","core-js/modules/esnext.math.degrees.js":"lAovk","core-js/modules/esnext.math.fscale.js":"k2b33","core-js/modules/esnext.math.iaddh.js":"3rdHO","core-js/modules/esnext.math.imulh.js":"8UDpO","core-js/modules/esnext.math.isubh.js":"hHlFR","core-js/modules/esnext.math.rad-per-deg.js":"d0sq8","core-js/modules/esnext.math.radians.js":"4O5p8","core-js/modules/esnext.math.scale.js":"7eJRv","core-js/modules/esnext.math.seeded-prng.js":"avTaO","core-js/modules/esnext.math.signbit.js":"cwFfw","core-js/modules/esnext.math.umulh.js":"29loa","core-js/modules/esnext.number.from-string.js":"3xbh3","core-js/modules/esnext.observable.js":"eeV02","core-js/modules/esnext.promise.try.js":"9Mfk9","core-js/modules/esnext.reflect.define-metadata.js":"hNtw3","core-js/modules/esnext.reflect.delete-metadata.js":"gLTQ0","core-js/modules/esnext.reflect.get-metadata.js":"4ocs1","core-js/modules/esnext.reflect.get-metadata-keys.js":"c4lFr","core-js/modules/esnext.reflect.get-own-metadata.js":"92uop","core-js/modules/esnext.reflect.get-own-metadata-keys.js":"1tHok","core-js/modules/esnext.reflect.has-metadata.js":"cVgdu","core-js/modules/esnext.reflect.has-own-metadata.js":"9crGj","core-js/modules/esnext.reflect.metadata.js":"aSvLp","core-js/modules/esnext.set.add-all.js":"7qoXf","core-js/modules/esnext.set.delete-all.js":"79fB3","core-js/modules/esnext.set.difference.js":"773AO","core-js/modules/esnext.set.every.js":"4X7Cu","core-js/modules/esnext.set.filter.js":"a8QMe","core-js/modules/esnext.set.find.js":"44hBz","core-js/modules/esnext.set.from.js":"fFjm0","core-js/modules/esnext.set.intersection.js":"5PUFy","core-js/modules/esnext.set.is-disjoint-from.js":"b3q3i","core-js/modules/esnext.set.is-subset-of.js":"5igXN","core-js/modules/esnext.set.is-superset-of.js":"1amm1","core-js/modules/esnext.set.join.js":"bMl6L","core-js/modules/esnext.set.map.js":"g65Jk","core-js/modules/esnext.set.of.js":"h11gG","core-js/modules/esnext.set.reduce.js":"gtD5C","core-js/modules/esnext.set.some.js":"aYdPy","core-js/modules/esnext.set.symmetric-difference.js":"lsopM","core-js/modules/esnext.set.union.js":"3nyPK","core-js/modules/esnext.string.at.js":"PgTGt","core-js/modules/esnext.string.code-points.js":"138n3","core-js/modules/esnext.symbol.dispose.js":"b9ez5","core-js/modules/esnext.symbol.observable.js":"bTlfI","core-js/modules/esnext.symbol.pattern-match.js":"dLSVv","core-js/modules/esnext.weak-map.delete-all.js":"jHykW","core-js/modules/esnext.weak-map.from.js":"hUBsF","core-js/modules/esnext.weak-map.of.js":"cBEF1","core-js/modules/esnext.weak-set.add-all.js":"aizkc","core-js/modules/esnext.weak-set.delete-all.js":"d5YOC","core-js/modules/esnext.weak-set.from.js":"upZfU","core-js/modules/esnext.weak-set.of.js":"CNJie","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./views/displayWeatherInfoView.js":"7Jsfh","./views/searchInputView.js":"8eh2q","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8cpHj":[function(require,module,exports) {
+},{"core-js/modules/esnext.array.last-index.js":"8cpHj","core-js/modules/esnext.array.last-item.js":"3KWUU","core-js/modules/esnext.composite-key.js":"3zsBr","core-js/modules/esnext.composite-symbol.js":"6P6E3","core-js/modules/esnext.map.delete-all.js":"84I4a","core-js/modules/esnext.map.every.js":"a0ie9","core-js/modules/esnext.map.filter.js":"8EHBg","core-js/modules/esnext.map.find.js":"kzunK","core-js/modules/esnext.map.find-key.js":"ipfV1","core-js/modules/esnext.map.from.js":"aMX7r","core-js/modules/esnext.map.group-by.js":"3AR1K","core-js/modules/esnext.map.includes.js":"3cPf4","core-js/modules/esnext.map.key-by.js":"czzPK","core-js/modules/esnext.map.key-of.js":"la1gU","core-js/modules/esnext.map.map-keys.js":"12CRV","core-js/modules/esnext.map.map-values.js":"fQehs","core-js/modules/esnext.map.merge.js":"5Qvm2","core-js/modules/esnext.map.of.js":"3WfcG","core-js/modules/esnext.map.reduce.js":"8ampn","core-js/modules/esnext.map.some.js":"eVX7K","core-js/modules/esnext.map.update.js":"agmCJ","core-js/modules/esnext.math.clamp.js":"fVCxt","core-js/modules/esnext.math.deg-per-rad.js":"16Ig2","core-js/modules/esnext.math.degrees.js":"lAovk","core-js/modules/esnext.math.fscale.js":"k2b33","core-js/modules/esnext.math.iaddh.js":"3rdHO","core-js/modules/esnext.math.imulh.js":"8UDpO","core-js/modules/esnext.math.isubh.js":"hHlFR","core-js/modules/esnext.math.rad-per-deg.js":"d0sq8","core-js/modules/esnext.math.radians.js":"4O5p8","core-js/modules/esnext.math.scale.js":"7eJRv","core-js/modules/esnext.math.seeded-prng.js":"avTaO","core-js/modules/esnext.math.signbit.js":"cwFfw","core-js/modules/esnext.math.umulh.js":"29loa","core-js/modules/esnext.number.from-string.js":"3xbh3","core-js/modules/esnext.observable.js":"eeV02","core-js/modules/esnext.promise.try.js":"9Mfk9","core-js/modules/esnext.reflect.define-metadata.js":"hNtw3","core-js/modules/esnext.reflect.delete-metadata.js":"gLTQ0","core-js/modules/esnext.reflect.get-metadata.js":"4ocs1","core-js/modules/esnext.reflect.get-metadata-keys.js":"c4lFr","core-js/modules/esnext.reflect.get-own-metadata.js":"92uop","core-js/modules/esnext.reflect.get-own-metadata-keys.js":"1tHok","core-js/modules/esnext.reflect.has-metadata.js":"cVgdu","core-js/modules/esnext.reflect.has-own-metadata.js":"9crGj","core-js/modules/esnext.reflect.metadata.js":"aSvLp","core-js/modules/esnext.set.add-all.js":"7qoXf","core-js/modules/esnext.set.delete-all.js":"79fB3","core-js/modules/esnext.set.difference.js":"773AO","core-js/modules/esnext.set.every.js":"4X7Cu","core-js/modules/esnext.set.filter.js":"a8QMe","core-js/modules/esnext.set.find.js":"44hBz","core-js/modules/esnext.set.from.js":"fFjm0","core-js/modules/esnext.set.intersection.js":"5PUFy","core-js/modules/esnext.set.is-disjoint-from.js":"b3q3i","core-js/modules/esnext.set.is-subset-of.js":"5igXN","core-js/modules/esnext.set.is-superset-of.js":"1amm1","core-js/modules/esnext.set.join.js":"bMl6L","core-js/modules/esnext.set.map.js":"g65Jk","core-js/modules/esnext.set.of.js":"h11gG","core-js/modules/esnext.set.reduce.js":"gtD5C","core-js/modules/esnext.set.some.js":"aYdPy","core-js/modules/esnext.set.symmetric-difference.js":"lsopM","core-js/modules/esnext.set.union.js":"3nyPK","core-js/modules/esnext.string.at.js":"PgTGt","core-js/modules/esnext.string.code-points.js":"138n3","core-js/modules/esnext.symbol.dispose.js":"b9ez5","core-js/modules/esnext.symbol.observable.js":"bTlfI","core-js/modules/esnext.symbol.pattern-match.js":"dLSVv","core-js/modules/esnext.weak-map.delete-all.js":"jHykW","core-js/modules/esnext.weak-map.from.js":"hUBsF","core-js/modules/esnext.weak-map.of.js":"cBEF1","core-js/modules/esnext.weak-set.add-all.js":"aizkc","core-js/modules/esnext.weak-set.delete-all.js":"d5YOC","core-js/modules/esnext.weak-set.from.js":"upZfU","core-js/modules/esnext.weak-set.of.js":"CNJie","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./views/displayWeatherInfoView.js":"7Jsfh","./views/searchInputView.js":"8eh2q","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/displayAlertView.js":"5h8Ve"}],"8cpHj":[function(require,module,exports) {
 "use strict";
 // TODO: Remove from `core-js@4`
 var DESCRIPTORS = require("73b5a71b9881a20f");
@@ -6446,7 +6456,7 @@ const locationWeather = async function(query) {
         const weatherData = await (0, _helpersJs.getJson)(`${(0, _configJs.WEATHER_API)}forecast.json?key=${(0, _configJs.WEATHER_API_KEY)}&q=${query}`);
         return weatherData;
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 };
 // User location info
@@ -6455,7 +6465,7 @@ const userLocationCity = async function() {
         const data = await (0, _helpersJs.getJson)(`${(0, _configJs.IP_INFO_API)}token=${(0, _configJs.IP_INFO_TOKEN)}`);
         return data.city;
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 };
 const userLocationWeather = async function() {
@@ -6467,7 +6477,7 @@ const userLocationWeather = async function() {
         state.userLocationWeather.flag = cInfo.flags.png;
         state.userLocationWeather.country = cInfo.alpha2Code;
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 };
 const searchLocationWeather = async function(query) {
@@ -6478,7 +6488,7 @@ const searchLocationWeather = async function(query) {
         state.searchLocationWeather.flag = cInfo.flags.png;
         state.searchLocationWeather.country = cInfo.alpha2Code;
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 };
 // Country info
@@ -6487,7 +6497,7 @@ const countryInfo = async function(country) {
         const data = await (0, _helpersJs.getJson)(`${(0, _configJs.COUNTRIES_INFO_API)}${country}`);
         return data[0];
     } catch (err) {
-        console.error(err);
+        throw err;
     }
 };
 
@@ -6542,6 +6552,7 @@ parcelHelpers.export(exports, "getJson", ()=>getJson);
 const getJson = async function(url) {
     try {
         const res = await fetch(url);
+        if (!res.ok) throw res.status;
         const data = await res.json();
         return data;
     } catch (err) {
@@ -6552,11 +6563,11 @@ const getJson = async function(url) {
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Jsfh":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _weatherInfoViewJs = require("./weatherInfoView.js");
-var _weatherInfoViewJsDefault = parcelHelpers.interopDefault(_weatherInfoViewJs);
+var _viewJs = require("./View.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 var _iconsSvg = require("url:../../images/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
-class DisplayWeatherInfoView extends (0, _weatherInfoViewJsDefault.default) {
+class DisplayWeatherInfoView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".weather-info");
     _generateMarkup() {
         this._optimizingDate();
@@ -6616,26 +6627,67 @@ class DisplayWeatherInfoView extends (0, _weatherInfoViewJsDefault.default) {
 }
 exports.default = new DisplayWeatherInfoView();
 
-},{"./weatherInfoView.js":"cPxLr","url:../../images/icons.svg":"hXnY3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cPxLr":[function(require,module,exports) {
+},{"url:../../images/icons.svg":"hXnY3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View.js":"5cUXS"}],"hXnY3":[function(require,module,exports) {
+module.exports = require("f04510e0db377015").getBundleURL("hWUTQ") + "icons.548cde10.svg" + "?" + Date.now();
+
+},{"f04510e0db377015":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"5cUXS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _weatherSVGsJs = require("../weatherSVGs.js");
 var _weatherSVGsJsDefault = parcelHelpers.interopDefault(_weatherSVGsJs);
 var _iconsSvg = require("url:../../images/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
-class WeatherInfoView {
+class View {
     _data;
     _localTime;
     _curHour;
     _weatherTypeSvg;
     _weatherTypeIcon;
+    _alertBox = document.querySelector(".alert-box");
     _render(data) {
         this._data = data;
         const markup = this._generateMarkup();
         this._clear();
+        this._alertBox.classList.add("hidden");
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
     }
     _checkWeatherType() {
+        console.log((0, _weatherSVGsJsDefault.default));
         const weatherTypeText = this._data.weatherType.toLowerCase();
         if (this._data.isDay) {
             if (weatherTypeText.includes("cloud")) {
@@ -6662,8 +6714,14 @@ class WeatherInfoView {
                 this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningFoggy;
                 this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#fogg-icon`;
             }
-            if (weatherTypeText.includes("thundery")) this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-thunder-icon`;
-            if (weatherTypeText.includes("overcast")) this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-icon`;
+            if (weatherTypeText.includes("thundery")) {
+                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningDayThundery;
+                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-thunder-icon`;
+            }
+            if (weatherTypeText.includes("overcast")) {
+                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).overcast;
+                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-icon`;
+            }
         } else {
             if (weatherTypeText.includes("cloud")) {
                 this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).nightCloudy;
@@ -6748,7 +6806,7 @@ class WeatherInfoView {
         this._parentElement.innerHTML = "";
     }
 }
-exports.default = WeatherInfoView;
+exports.default = View;
 
 },{"../weatherSVGs.js":"9pU3L","url:../../images/icons.svg":"hXnY3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9pU3L":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -6808,42 +6866,7 @@ exports.default = weatherSVGs;
 },{"/src/images/weather/morning-day-cloudy.svg":"aHBkj","/src/images/weather/morning-day-rainy.svg":"eAOJc","/src/images/weather/morning-day-snow.svg":"fcvqR","/src/images/weather/morning-day-wind.svg":"ewp5K","/src/images/weather/morning-day-thundery.svg":"3xrnR","/src/images/weather/morning-weather/morning-clear.svg":"ds1gq","/src/images/weather/morning-weather/morning-foggy.svg":"euR8U","/src/images/weather/day-weather/day-clear.svg":"2SdSw","/src/images/weather/day-weather/day-evening-clear.svg":"01E6c","/src/images/weather/night-weather/night-clear.svg":"cvpIi","/src/images/weather/night-weather/night-rainy.svg":"75hQ8","/src/images/weather/night-weather/night-snow.svg":"9pmSA","/src/images/weather/night-weather/night-thundery.svg":"4gDGQ","/src/images/weather/night-weather/night-cloudy.svg":"eL8WT","/src/images/weather/night-weather/night-wind.svg":"81HWH","/src/images/weather/overcast.svg":"9n81y","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aHBkj":[function(require,module,exports) {
 module.exports = require("3dbb10758f2ca749").getBundleURL("hWUTQ") + "morning-day-cloudy.73636b69.svg" + "?" + Date.now();
 
-},{"3dbb10758f2ca749":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"eAOJc":[function(require,module,exports) {
+},{"3dbb10758f2ca749":"lgJ39"}],"eAOJc":[function(require,module,exports) {
 module.exports = require("e6db47614c1ee60b").getBundleURL("hWUTQ") + "morning-day-rainy.c478e7a2.svg" + "?" + Date.now();
 
 },{"e6db47614c1ee60b":"lgJ39"}],"fcvqR":[function(require,module,exports) {
@@ -6888,10 +6911,7 @@ module.exports = require("b4fa3beee8c4bf1d").getBundleURL("hWUTQ") + "night-wind
 },{"b4fa3beee8c4bf1d":"lgJ39"}],"9n81y":[function(require,module,exports) {
 module.exports = require("d18a4d677fc7c1e9").getBundleURL("hWUTQ") + "overcast.edf850e9.svg" + "?" + Date.now();
 
-},{"d18a4d677fc7c1e9":"lgJ39"}],"hXnY3":[function(require,module,exports) {
-module.exports = require("f04510e0db377015").getBundleURL("hWUTQ") + "icons.548cde10.svg" + "?" + Date.now();
-
-},{"f04510e0db377015":"lgJ39"}],"8eh2q":[function(require,module,exports) {
+},{"d18a4d677fc7c1e9":"lgJ39"}],"8eh2q":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class SearchInputView {
@@ -6914,6 +6934,46 @@ class SearchInputView {
 }
 exports.default = new SearchInputView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequireb4b3")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5h8Ve":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+class DisplayAlertView extends (0, _viewDefault.default) {
+    _closeAlertBtn = document.querySelector(".close-alert");
+    _errStatus;
+    _errMsg = "Something is wrong! Try agin!";
+    constructor(){
+        super();
+        // attach close-alert-btn handler
+        this._handlerCloseAlertBtn();
+    }
+    // get error
+    _getErr(errStatus) {
+        this._errStatus = errStatus;
+        if (errStatus === 400) this._errMsg = `We could NOT find anything! Try agin!`;
+        this._renderErr();
+    }
+    // render error
+    _renderErr() {
+        // clear weather-info section
+        document.querySelector(".weather-info").innerHTML = "";
+        // set alert message
+        this._alertBox.querySelector(".alert-desc").textContent = this._errMsg;
+        // show alert-box
+        this._alertBoxToggle();
+    }
+    // close-alert-btn e-listener
+    _handlerCloseAlertBtn() {
+        this._closeAlertBtn.addEventListener("click", this._alertBoxToggle.bind(this));
+    }
+    // alert-box toggle
+    _alertBoxToggle() {
+        this._alertBox.classList.toggle("hidden");
+    }
+}
+exports.default = new DisplayAlertView();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View":"5cUXS"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequireb4b3")
 
 //# sourceMappingURL=index.e37f48ea.js.map
