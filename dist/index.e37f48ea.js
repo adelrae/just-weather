@@ -657,26 +657,16 @@ var _displayWeatherInfoViewJs = require("./views/displayWeatherInfoView.js");
 var _displayWeatherInfoViewJsDefault = parcelHelpers.interopDefault(_displayWeatherInfoViewJs);
 var _searchInputViewJs = require("./views/searchInputView.js");
 var _searchInputViewJsDefault = parcelHelpers.interopDefault(_searchInputViewJs);
-var _displayAlertViewJs = require("./views/displayAlertView.js");
-var _displayAlertViewJsDefault = parcelHelpers.interopDefault(_displayAlertViewJs);
 const controlUserWeatherInfo = async function() {
-    try {
-        (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
-        await _modelJs.userLocationWeather();
-        (0, _displayWeatherInfoViewJsDefault.default)._render(_modelJs.state.userLocationWeather);
-    } catch (err) {
-        (0, _displayAlertViewJsDefault.default)._getError();
-    }
+    (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
+    await _modelJs.userLocationWeather();
+    (0, _displayWeatherInfoViewJsDefault.default)._render(_modelJs.state.userLocationWeather);
 };
 const controlSearchInput = async function() {
-    try {
-        (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
-        const query = (0, _searchInputViewJsDefault.default)._getQuery();
-        await _modelJs.searchLocationWeather(query);
-        (0, _displayWeatherInfoViewJsDefault.default)._render(_modelJs.state.searchLocationWeather);
-    } catch (err) {
-        (0, _displayAlertViewJsDefault.default)._getError(err);
-    }
+    (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
+    const query = (0, _searchInputViewJsDefault.default)._getQuery();
+    await _modelJs.searchLocationWeather(query);
+    (0, _displayWeatherInfoViewJsDefault.default)._render(_modelJs.state.searchLocationWeather);
 };
 const init = function() {
     controlUserWeatherInfo();
@@ -684,7 +674,7 @@ const init = function() {
 };
 init();
 
-},{"core-js/modules/esnext.array.last-index.js":"8cpHj","core-js/modules/esnext.array.last-item.js":"3KWUU","core-js/modules/esnext.composite-key.js":"3zsBr","core-js/modules/esnext.composite-symbol.js":"6P6E3","core-js/modules/esnext.map.delete-all.js":"84I4a","core-js/modules/esnext.map.every.js":"a0ie9","core-js/modules/esnext.map.filter.js":"8EHBg","core-js/modules/esnext.map.find.js":"kzunK","core-js/modules/esnext.map.find-key.js":"ipfV1","core-js/modules/esnext.map.from.js":"aMX7r","core-js/modules/esnext.map.group-by.js":"3AR1K","core-js/modules/esnext.map.includes.js":"3cPf4","core-js/modules/esnext.map.key-by.js":"czzPK","core-js/modules/esnext.map.key-of.js":"la1gU","core-js/modules/esnext.map.map-keys.js":"12CRV","core-js/modules/esnext.map.map-values.js":"fQehs","core-js/modules/esnext.map.merge.js":"5Qvm2","core-js/modules/esnext.map.of.js":"3WfcG","core-js/modules/esnext.map.reduce.js":"8ampn","core-js/modules/esnext.map.some.js":"eVX7K","core-js/modules/esnext.map.update.js":"agmCJ","core-js/modules/esnext.math.clamp.js":"fVCxt","core-js/modules/esnext.math.deg-per-rad.js":"16Ig2","core-js/modules/esnext.math.degrees.js":"lAovk","core-js/modules/esnext.math.fscale.js":"k2b33","core-js/modules/esnext.math.iaddh.js":"3rdHO","core-js/modules/esnext.math.imulh.js":"8UDpO","core-js/modules/esnext.math.isubh.js":"hHlFR","core-js/modules/esnext.math.rad-per-deg.js":"d0sq8","core-js/modules/esnext.math.radians.js":"4O5p8","core-js/modules/esnext.math.scale.js":"7eJRv","core-js/modules/esnext.math.seeded-prng.js":"avTaO","core-js/modules/esnext.math.signbit.js":"cwFfw","core-js/modules/esnext.math.umulh.js":"29loa","core-js/modules/esnext.number.from-string.js":"3xbh3","core-js/modules/esnext.observable.js":"eeV02","core-js/modules/esnext.promise.try.js":"9Mfk9","core-js/modules/esnext.reflect.define-metadata.js":"hNtw3","core-js/modules/esnext.reflect.delete-metadata.js":"gLTQ0","core-js/modules/esnext.reflect.get-metadata.js":"4ocs1","core-js/modules/esnext.reflect.get-metadata-keys.js":"c4lFr","core-js/modules/esnext.reflect.get-own-metadata.js":"92uop","core-js/modules/esnext.reflect.get-own-metadata-keys.js":"1tHok","core-js/modules/esnext.reflect.has-metadata.js":"cVgdu","core-js/modules/esnext.reflect.has-own-metadata.js":"9crGj","core-js/modules/esnext.reflect.metadata.js":"aSvLp","core-js/modules/esnext.set.add-all.js":"7qoXf","core-js/modules/esnext.set.delete-all.js":"79fB3","core-js/modules/esnext.set.difference.js":"773AO","core-js/modules/esnext.set.every.js":"4X7Cu","core-js/modules/esnext.set.filter.js":"a8QMe","core-js/modules/esnext.set.find.js":"44hBz","core-js/modules/esnext.set.from.js":"fFjm0","core-js/modules/esnext.set.intersection.js":"5PUFy","core-js/modules/esnext.set.is-disjoint-from.js":"b3q3i","core-js/modules/esnext.set.is-subset-of.js":"5igXN","core-js/modules/esnext.set.is-superset-of.js":"1amm1","core-js/modules/esnext.set.join.js":"bMl6L","core-js/modules/esnext.set.map.js":"g65Jk","core-js/modules/esnext.set.of.js":"h11gG","core-js/modules/esnext.set.reduce.js":"gtD5C","core-js/modules/esnext.set.some.js":"aYdPy","core-js/modules/esnext.set.symmetric-difference.js":"lsopM","core-js/modules/esnext.set.union.js":"3nyPK","core-js/modules/esnext.string.at.js":"PgTGt","core-js/modules/esnext.string.code-points.js":"138n3","core-js/modules/esnext.symbol.dispose.js":"b9ez5","core-js/modules/esnext.symbol.observable.js":"bTlfI","core-js/modules/esnext.symbol.pattern-match.js":"dLSVv","core-js/modules/esnext.weak-map.delete-all.js":"jHykW","core-js/modules/esnext.weak-map.from.js":"hUBsF","core-js/modules/esnext.weak-map.of.js":"cBEF1","core-js/modules/esnext.weak-set.add-all.js":"aizkc","core-js/modules/esnext.weak-set.delete-all.js":"d5YOC","core-js/modules/esnext.weak-set.from.js":"upZfU","core-js/modules/esnext.weak-set.of.js":"CNJie","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./views/displayWeatherInfoView.js":"7Jsfh","./views/searchInputView.js":"8eh2q","./views/displayAlertView.js":"5h8Ve","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8cpHj":[function(require,module,exports) {
+},{"core-js/modules/esnext.array.last-index.js":"8cpHj","core-js/modules/esnext.array.last-item.js":"3KWUU","core-js/modules/esnext.composite-key.js":"3zsBr","core-js/modules/esnext.composite-symbol.js":"6P6E3","core-js/modules/esnext.map.delete-all.js":"84I4a","core-js/modules/esnext.map.every.js":"a0ie9","core-js/modules/esnext.map.filter.js":"8EHBg","core-js/modules/esnext.map.find.js":"kzunK","core-js/modules/esnext.map.find-key.js":"ipfV1","core-js/modules/esnext.map.from.js":"aMX7r","core-js/modules/esnext.map.group-by.js":"3AR1K","core-js/modules/esnext.map.includes.js":"3cPf4","core-js/modules/esnext.map.key-by.js":"czzPK","core-js/modules/esnext.map.key-of.js":"la1gU","core-js/modules/esnext.map.map-keys.js":"12CRV","core-js/modules/esnext.map.map-values.js":"fQehs","core-js/modules/esnext.map.merge.js":"5Qvm2","core-js/modules/esnext.map.of.js":"3WfcG","core-js/modules/esnext.map.reduce.js":"8ampn","core-js/modules/esnext.map.some.js":"eVX7K","core-js/modules/esnext.map.update.js":"agmCJ","core-js/modules/esnext.math.clamp.js":"fVCxt","core-js/modules/esnext.math.deg-per-rad.js":"16Ig2","core-js/modules/esnext.math.degrees.js":"lAovk","core-js/modules/esnext.math.fscale.js":"k2b33","core-js/modules/esnext.math.iaddh.js":"3rdHO","core-js/modules/esnext.math.imulh.js":"8UDpO","core-js/modules/esnext.math.isubh.js":"hHlFR","core-js/modules/esnext.math.rad-per-deg.js":"d0sq8","core-js/modules/esnext.math.radians.js":"4O5p8","core-js/modules/esnext.math.scale.js":"7eJRv","core-js/modules/esnext.math.seeded-prng.js":"avTaO","core-js/modules/esnext.math.signbit.js":"cwFfw","core-js/modules/esnext.math.umulh.js":"29loa","core-js/modules/esnext.number.from-string.js":"3xbh3","core-js/modules/esnext.observable.js":"eeV02","core-js/modules/esnext.promise.try.js":"9Mfk9","core-js/modules/esnext.reflect.define-metadata.js":"hNtw3","core-js/modules/esnext.reflect.delete-metadata.js":"gLTQ0","core-js/modules/esnext.reflect.get-metadata.js":"4ocs1","core-js/modules/esnext.reflect.get-metadata-keys.js":"c4lFr","core-js/modules/esnext.reflect.get-own-metadata.js":"92uop","core-js/modules/esnext.reflect.get-own-metadata-keys.js":"1tHok","core-js/modules/esnext.reflect.has-metadata.js":"cVgdu","core-js/modules/esnext.reflect.has-own-metadata.js":"9crGj","core-js/modules/esnext.reflect.metadata.js":"aSvLp","core-js/modules/esnext.set.add-all.js":"7qoXf","core-js/modules/esnext.set.delete-all.js":"79fB3","core-js/modules/esnext.set.difference.js":"773AO","core-js/modules/esnext.set.every.js":"4X7Cu","core-js/modules/esnext.set.filter.js":"a8QMe","core-js/modules/esnext.set.find.js":"44hBz","core-js/modules/esnext.set.from.js":"fFjm0","core-js/modules/esnext.set.intersection.js":"5PUFy","core-js/modules/esnext.set.is-disjoint-from.js":"b3q3i","core-js/modules/esnext.set.is-subset-of.js":"5igXN","core-js/modules/esnext.set.is-superset-of.js":"1amm1","core-js/modules/esnext.set.join.js":"bMl6L","core-js/modules/esnext.set.map.js":"g65Jk","core-js/modules/esnext.set.of.js":"h11gG","core-js/modules/esnext.set.reduce.js":"gtD5C","core-js/modules/esnext.set.some.js":"aYdPy","core-js/modules/esnext.set.symmetric-difference.js":"lsopM","core-js/modules/esnext.set.union.js":"3nyPK","core-js/modules/esnext.string.at.js":"PgTGt","core-js/modules/esnext.string.code-points.js":"138n3","core-js/modules/esnext.symbol.dispose.js":"b9ez5","core-js/modules/esnext.symbol.observable.js":"bTlfI","core-js/modules/esnext.symbol.pattern-match.js":"dLSVv","core-js/modules/esnext.weak-map.delete-all.js":"jHykW","core-js/modules/esnext.weak-map.from.js":"hUBsF","core-js/modules/esnext.weak-map.of.js":"cBEF1","core-js/modules/esnext.weak-set.add-all.js":"aizkc","core-js/modules/esnext.weak-set.delete-all.js":"d5YOC","core-js/modules/esnext.weak-set.from.js":"upZfU","core-js/modules/esnext.weak-set.of.js":"CNJie","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./views/displayWeatherInfoView.js":"7Jsfh","./views/searchInputView.js":"8eh2q","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8cpHj":[function(require,module,exports) {
 "use strict";
 // TODO: Remove from `core-js@4`
 var DESCRIPTORS = require("73b5a71b9881a20f");
@@ -6456,7 +6446,7 @@ const locationWeather = async function(query) {
         const weatherData = await (0, _helpersJs.getJson)(`${(0, _configJs.WEATHER_API)}forecast.json?key=${(0, _configJs.WEATHER_API_KEY)}&q=${query}`);
         return weatherData;
     } catch (err) {
-        throw err;
+        console.error(err);
     }
 };
 // User location info
@@ -6465,7 +6455,7 @@ const userLocationCity = async function() {
         const data = await (0, _helpersJs.getJson)(`${(0, _configJs.IP_INFO_API)}token=${(0, _configJs.IP_INFO_TOKEN)}`);
         return data.city;
     } catch (err) {
-        throw err;
+        console.error(err);
     }
 };
 const userLocationWeather = async function() {
@@ -6477,7 +6467,7 @@ const userLocationWeather = async function() {
         state.userLocationWeather.flag = cInfo.flags.png;
         state.userLocationWeather.country = cInfo.alpha2Code;
     } catch (err) {
-        throw err;
+        console.error(err);
     }
 };
 const searchLocationWeather = async function(query) {
@@ -6488,7 +6478,7 @@ const searchLocationWeather = async function(query) {
         state.searchLocationWeather.flag = cInfo.flags.png;
         state.searchLocationWeather.country = cInfo.alpha2Code;
     } catch (err) {
-        throw err;
+        console.error(err);
     }
 };
 // Country info
@@ -6497,7 +6487,7 @@ const countryInfo = async function(country) {
         const data = await (0, _helpersJs.getJson)(`${(0, _configJs.COUNTRIES_INFO_API)}${country}`);
         return data[0];
     } catch (err) {
-        throw err;
+        console.error(err);
     }
 };
 
@@ -6552,7 +6542,6 @@ parcelHelpers.export(exports, "getJson", ()=>getJson);
 const getJson = async function(url) {
     try {
         const res = await fetch(url);
-        if (!res.ok) throw res.status;
         const data = await res.json();
         return data;
     } catch (err) {
@@ -6570,7 +6559,7 @@ var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class DisplayWeatherInfoView extends (0, _weatherInfoViewJsDefault.default) {
     _parentElement = document.querySelector(".weather-info");
     _generateMarkup() {
-        this._optimizingLocalTime();
+        this._optimizingDate();
         this._checkWeatherType();
         return `
             <div class="left-box flex-2 left">
@@ -6649,7 +6638,6 @@ class WeatherInfoView {
     _checkWeatherType() {
         const weatherTypeText = this._data.weatherType.toLowerCase();
         if (this._data.isDay) {
-            console.log("123");
             if (weatherTypeText.includes("cloud")) {
                 this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningDayCloudy;
                 this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-icon`;
@@ -6674,17 +6662,9 @@ class WeatherInfoView {
                 this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningFoggy;
                 this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#fogg-icon`;
             }
-            if (weatherTypeText.includes("thundery")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningDayThundery;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-thunder-icon`;
-            }
-            if (weatherTypeText.includes("overcast")) {
-                console.log(1);
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).overcast;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-icon`;
-            }
+            if (weatherTypeText.includes("thundery")) this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-thunder-icon`;
+            if (weatherTypeText.includes("overcast")) this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-icon`;
         } else {
-            console.log("444");
             if (weatherTypeText.includes("cloud")) {
                 this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).nightCloudy;
                 this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-icon`;
@@ -6719,7 +6699,7 @@ class WeatherInfoView {
             }
         }
     }
-    _optimizingLocalTime() {
+    _optimizingDate() {
         const date = new Date(this._data.localTime);
         const options = {
             hour: "numeric",
@@ -6933,65 +6913,6 @@ class SearchInputView {
     }
 }
 exports.default = new SearchInputView();
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5h8Ve":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class DisplayAlert {
-    _parentElement = document.querySelector("#app");
-    _errorMessage = "Something is wrong! Try agin!";
-    _errorStatus;
-    _getError(err) {
-        if (err === 400) this._errorMessage = `We could'nt find anything, Try agin!`;
-        this._errorStatus = err;
-        this._renderAlert(this._errorMessage);
-    }
-    _renderAlert(message) {
-        const markup = `
-            <div class="alert-box hidden">
-                <div class="alert-content">
-                    <span class="alert-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_7_6620)">
-                            <path d="M12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>
-                            <path d="M12 21C14.21 21 16 16.97 16 12C16 7.03 14.21 3 12 3C9.79 3 8 7.03 8 12C8 16.97 9.79 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>
-                            <path d="M3 11.58C8.95 12.68 15.05 12.68 21 11.58" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>
-                            </g>
-                            <defs>
-                            <clipPath id="clip0_7_6620">
-                            <rect width="24" height="24" fill="white"/>
-                            </clipPath>
-                            </defs>
-                        </svg>
-                    </span>
-                    <div class="alert-details">
-                        <div class="alert-title">Oops</div>
-                        <span class="alert-desc">${message}</span>
-                    </div>
-                </div>
-                <button class="close-alert">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_7_6853)">
-                        <path d="M6 18L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M18 18L6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </g>
-                        <defs>
-                        <clipPath id="clip0_7_6853">
-                        <rect width="24" height="24" fill="white"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
-                </button>
-            </div>
-        `;
-        this._parentElement.insertAdjacentHTML("afterbegin", markup);
-        setTimeout(()=>{
-            document.querySelector(".alert-box").classList.remove("hidden");
-            this._parentElement.querySelector(".main-content").style.opacity = ".5";
-        }, 100);
-    }
-}
-exports.default = new DisplayAlert();
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["aD7Zm","aenu9"], "aenu9", "parcelRequireb4b3")
 
