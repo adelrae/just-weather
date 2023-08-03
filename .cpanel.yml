@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/example/public_html/
-    - -R dist $DEPLOYPATH
+    - export DEPLOYPATH=/home/example//
+    - cp -R dist/* $DEPLOYPATH
