@@ -322,6 +322,7 @@ button, input {
         z-index: 1000;
         transition: all .2s ease-out;
         opacity: 1;
+        box-shadow: 0 1rem 40px rgba(0,0,0,0.08);
     
         .alert-content {
             display: flex;
