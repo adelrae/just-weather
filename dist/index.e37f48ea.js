@@ -6511,7 +6511,7 @@ parcelHelpers.export(exports, "WEATHER_API_KEY", ()=>WEATHER_API_KEY);
 parcelHelpers.export(exports, "COUNTRIES_INFO_API", ()=>COUNTRIES_INFO_API);
 const IP_INFO_API = "https://ipinfo.io/json?";
 const IP_INFO_TOKEN = "2751c7337c84da";
-const WEATHER_API = "http://api.weatherapi.com/v1/";
+const WEATHER_API = "https://api.weatherapi.com/v1/";
 const WEATHER_API_KEY = "d7b95daf1f3346d5be1131427233007";
 const COUNTRIES_INFO_API = "https://restcountries.com/v2/name/";
 

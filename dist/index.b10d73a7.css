@@ -305,6 +305,7 @@ button, input {
   top: 6rem;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: 0 1rem 40px #00000014;
 }
 
 #app .alert-box .alert-content {
