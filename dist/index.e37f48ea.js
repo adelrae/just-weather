@@ -659,6 +659,7 @@ var _searchInputViewJs = require("./views/searchInputView.js");
 var _searchInputViewJsDefault = parcelHelpers.interopDefault(_searchInputViewJs);
 var _displayAlertViewJs = require("./views/displayAlertView.js");
 var _displayAlertViewJsDefault = parcelHelpers.interopDefault(_displayAlertViewJs);
+// Control user weather info
 const controlUserWeatherInfo = async function() {
     try {
         (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
@@ -668,6 +669,7 @@ const controlUserWeatherInfo = async function() {
         (0, _displayAlertViewJsDefault.default)._getErr(err);
     }
 };
+// Control search input
 const controlSearchInput = async function() {
     try {
         (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
@@ -6638,9 +6640,60 @@ class View {
     _data;
     _localTime;
     _curHour;
+    _weatherTypeMapping = {
+        "cloud": {
+            day: (0, _weatherSVGsJsDefault.default).morningDayCloudy,
+            night: (0, _weatherSVGsJsDefault.default).nightCloudy,
+            icon: `${0, _iconsSvgDefault.default}#cloud-icon`
+        },
+        "clear": {
+            night: (0, _weatherSVGsJsDefault.default).nightClear,
+            icon: `${0, _iconsSvgDefault.default}#moon-icon`
+        },
+        "sunny": {
+            day: (0, _weatherSVGsJsDefault.default).morningClear,
+            icon: `${0, _iconsSvgDefault.default}#sun-icon`
+        },
+        "rain": {
+            day: (0, _weatherSVGsJsDefault.default).morningDayRainy,
+            night: (0, _weatherSVGsJsDefault.default).nightRainy,
+            icon: `${0, _iconsSvgDefault.default}#cloud-rain-icon`
+        },
+        "snow": {
+            day: (0, _weatherSVGsJsDefault.default).morningDaySnow,
+            night: (0, _weatherSVGsJsDefault.default).nightSnow,
+            icon: `${0, _iconsSvgDefault.default}#cloud-snow-icon`
+        },
+        "wind": {
+            day: (0, _weatherSVGsJsDefault.default).morningDayWind,
+            night: (0, _weatherSVGsJsDefault.default).nightWind,
+            icon: `${0, _iconsSvgDefault.default}#wind-icon`
+        },
+        "fogg": {
+            day: (0, _weatherSVGsJsDefault.default).morningFoggy,
+            night: (0, _weatherSVGsJsDefault.default).morningFoggy,
+            icon: `${0, _iconsSvgDefault.default}#fogg-icon`
+        },
+        "mist": {
+            day: (0, _weatherSVGsJsDefault.default).morningFoggy,
+            night: (0, _weatherSVGsJsDefault.default).morningFoggy,
+            icon: `${0, _iconsSvgDefault.default}#fogg-icon`
+        },
+        "thundery": {
+            day: (0, _weatherSVGsJsDefault.default).morningDayThundery,
+            night: (0, _weatherSVGsJsDefault.default).nightThundery,
+            icon: `${0, _iconsSvgDefault.default}#cloud-thunder-icon`
+        },
+        "overcast": {
+            day: (0, _weatherSVGsJsDefault.default).overcast,
+            night: (0, _weatherSVGsJsDefault.default).overcast,
+            icon: `${0, _iconsSvgDefault.default}#cloud-icon`
+        }
+    };
     _weatherTypeSvg;
     _weatherTypeIcon;
     _alertBox = document.querySelector(".alert-box");
+    // Render weatherInfo
     _render(data) {
         this._data = data;
         const markup = this._generateMarkup();
@@ -6648,77 +6701,26 @@ class View {
         this._alertBox.classList.add("hidden");
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
     }
+    // Check weather type
     _checkWeatherType() {
-        console.log((0, _weatherSVGsJsDefault.default));
         const weatherTypeText = this._data.weatherType.toLowerCase();
-        if (this._data.isDay) {
-            if (weatherTypeText.includes("cloud")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningDayCloudy;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-icon`;
+        const weatherTypes = Object.entries(this._weatherTypeMapping);
+        console.log(1);
+        weatherTypes.forEach((type)=>{
+            const typeText = type[0];
+            const typeDetails = type[1];
+            if (weatherTypeText.includes(typeText)) {
+                console.log(weatherTypeText, type);
+                this._weatherTypeIcon = typeDetails.icon;
+                if (this._data.isDay) this._weatherTypeSvg = typeDetails.day;
+                else {
+                    this._weatherTypeSvg = typeDetails.night;
+                    if (weatherTypeText === "clear") this._weatherTypeIcon = typeDetails.icon;
+                }
             }
-            if (weatherTypeText.includes("clear") || weatherTypeText.includes("sunny")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningClear;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#sun-icon`;
-            }
-            if (weatherTypeText.includes("rain")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningDayRainy;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-rain-icon`;
-            }
-            if (weatherTypeText.includes("snow")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningDaySnow;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-snow-icon`;
-            }
-            if (weatherTypeText.includes("wind")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningDayWind;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#wind-icon`;
-            }
-            if (weatherTypeText.includes("fogg") || weatherTypeText.includes("mist")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningFoggy;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#fogg-icon`;
-            }
-            if (weatherTypeText.includes("thundery")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningDayThundery;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-thunder-icon`;
-            }
-            if (weatherTypeText.includes("overcast")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).overcast;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-icon`;
-            }
-        } else {
-            if (weatherTypeText.includes("cloud")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).nightCloudy;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-icon`;
-            }
-            if (weatherTypeText.includes("clear")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).nightClear;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#moon-icon`;
-            }
-            if (weatherTypeText.includes("rain")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).nightRainy;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-rain-icon`;
-            }
-            if (weatherTypeText.includes("snow")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).nightSnow;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-snow-icon`;
-            }
-            if (weatherTypeText.includes("wind")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).nightWind;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#wind-icon`;
-            }
-            if (weatherTypeText.includes("fogg") || weatherTypeText.includes("mist")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).morningFoggy;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#fogg-icon`;
-            }
-            if (weatherTypeText.includes("thundery")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).nightThundery;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-thunder-icon`;
-            }
-            if (weatherTypeText.includes("overcast")) {
-                this._weatherTypeSvg = (0, _weatherSVGsJsDefault.default).overcast;
-                this._weatherTypeIcon = `${0, _iconsSvgDefault.default}#cloud-icon`;
-            }
-        }
+        });
     }
+    // Optimize date
     _optimizingDate() {
         const date = new Date(this._data.localTime);
         const options = {
@@ -6732,6 +6734,7 @@ class View {
         this._localTime = `${weekday}, ${time}`;
         this._curHour = date.getHours();
     }
+    // Render loader
     _renderLoader() {
         const markup = `
             <div class="loader">
@@ -6764,6 +6767,7 @@ class View {
         this._clear();
         this._parentElement.insertAdjacentHTML("afterBegin", markup);
     }
+    // Clear parent element
     _clear() {
         this._parentElement.innerHTML = "";
     }
