@@ -6695,8 +6695,8 @@ class View {
     }
     _checkWeatherType() {
         const weatherTypeText = this._data.weatherType.toLowerCase();
-        for(type in Object.entries(this._weatherTypeMapping))console.log(type);
-    // console.log(this._weatherTypeMapping);
+        //lkjl
+        console.log(this._weatherTypeMapping);
     // if(this._data.isDay) {
     //     if (weatherTypeText.includes('cloud')) {
     //         this._weatherTypeSvg = weatherSVGs.morningDayCloudy;
