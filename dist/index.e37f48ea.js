@@ -6627,45 +6627,7 @@ class DisplayWeatherInfoView extends (0, _viewJsDefault.default) {
 }
 exports.default = new DisplayWeatherInfoView();
 
-},{"url:../../images/icons.svg":"hXnY3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View.js":"5cUXS"}],"hXnY3":[function(require,module,exports) {
-module.exports = require("f04510e0db377015").getBundleURL("hWUTQ") + "icons.548cde10.svg" + "?" + Date.now();
-
-},{"f04510e0db377015":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"5cUXS":[function(require,module,exports) {
+},{"./View.js":"5cUXS","url:../../images/icons.svg":"hXnY3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5cUXS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _weatherSVGsJs = require("../weatherSVGs.js");
@@ -6866,7 +6828,42 @@ exports.default = weatherSVGs;
 },{"/src/images/weather/morning-day-cloudy.svg":"aHBkj","/src/images/weather/morning-day-rainy.svg":"eAOJc","/src/images/weather/morning-day-snow.svg":"fcvqR","/src/images/weather/morning-day-wind.svg":"ewp5K","/src/images/weather/morning-day-thundery.svg":"3xrnR","/src/images/weather/morning-weather/morning-clear.svg":"ds1gq","/src/images/weather/morning-weather/morning-foggy.svg":"euR8U","/src/images/weather/day-weather/day-clear.svg":"2SdSw","/src/images/weather/day-weather/day-evening-clear.svg":"01E6c","/src/images/weather/night-weather/night-clear.svg":"cvpIi","/src/images/weather/night-weather/night-rainy.svg":"75hQ8","/src/images/weather/night-weather/night-snow.svg":"9pmSA","/src/images/weather/night-weather/night-thundery.svg":"4gDGQ","/src/images/weather/night-weather/night-cloudy.svg":"eL8WT","/src/images/weather/night-weather/night-wind.svg":"81HWH","/src/images/weather/overcast.svg":"9n81y","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aHBkj":[function(require,module,exports) {
 module.exports = require("3dbb10758f2ca749").getBundleURL("hWUTQ") + "morning-day-cloudy.73636b69.svg" + "?" + Date.now();
 
-},{"3dbb10758f2ca749":"lgJ39"}],"eAOJc":[function(require,module,exports) {
+},{"3dbb10758f2ca749":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"eAOJc":[function(require,module,exports) {
 module.exports = require("e6db47614c1ee60b").getBundleURL("hWUTQ") + "morning-day-rainy.c478e7a2.svg" + "?" + Date.now();
 
 },{"e6db47614c1ee60b":"lgJ39"}],"fcvqR":[function(require,module,exports) {
@@ -6911,7 +6908,10 @@ module.exports = require("b4fa3beee8c4bf1d").getBundleURL("hWUTQ") + "night-wind
 },{"b4fa3beee8c4bf1d":"lgJ39"}],"9n81y":[function(require,module,exports) {
 module.exports = require("d18a4d677fc7c1e9").getBundleURL("hWUTQ") + "overcast.edf850e9.svg" + "?" + Date.now();
 
-},{"d18a4d677fc7c1e9":"lgJ39"}],"8eh2q":[function(require,module,exports) {
+},{"d18a4d677fc7c1e9":"lgJ39"}],"hXnY3":[function(require,module,exports) {
+module.exports = require("f04510e0db377015").getBundleURL("hWUTQ") + "icons.548cde10.svg" + "?" + Date.now();
+
+},{"f04510e0db377015":"lgJ39"}],"8eh2q":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class SearchInputView {
