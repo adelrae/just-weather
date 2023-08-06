@@ -7,12 +7,3 @@ JustWeather is a sleek and user-friendly web application developed with JavaScri
 1. Clone the repository.
 2. Install required dependencies: `npm install`.
 3. Run the project: `npm start`.
-
-## Features
-
-- Feature 1: Description of feature 1.
-- Feature 2: Description of feature 2.
-
-## Made with
-
-- [JavaScript](https://javascript.info/)
