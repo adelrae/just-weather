@@ -659,6 +659,7 @@ var _searchInputViewJs = require("./views/searchInputView.js");
 var _searchInputViewJsDefault = parcelHelpers.interopDefault(_searchInputViewJs);
 var _displayAlertViewJs = require("./views/displayAlertView.js");
 var _displayAlertViewJsDefault = parcelHelpers.interopDefault(_displayAlertViewJs);
+// Control user weather info
 const controlUserWeatherInfo = async function() {
     try {
         (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
@@ -668,6 +669,7 @@ const controlUserWeatherInfo = async function() {
         (0, _displayAlertViewJsDefault.default)._getErr(err);
     }
 };
+// Control search input
 const controlSearchInput = async function() {
     try {
         (0, _displayWeatherInfoViewJsDefault.default)._renderLoader();
@@ -6691,7 +6693,7 @@ class View {
     _weatherTypeSvg;
     _weatherTypeIcon;
     _alertBox = document.querySelector(".alert-box");
-    // render weatherInfo
+    // Render weatherInfo
     _render(data) {
         this._data = data;
         const markup = this._generateMarkup();
@@ -6699,7 +6701,7 @@ class View {
         this._alertBox.classList.add("hidden");
         this._parentElement.insertAdjacentHTML("afterbegin", markup);
     }
-    // check weather type
+    // Check weather type
     _checkWeatherType() {
         const weatherTypeText = this._data.weatherType.toLowerCase();
         const weatherTypes = Object.entries(this._weatherTypeMapping);
@@ -6718,7 +6720,7 @@ class View {
             }
         });
     }
-    // optimize date
+    // Optimize date
     _optimizingDate() {
         const date = new Date(this._data.localTime);
         const options = {
@@ -6732,7 +6734,7 @@ class View {
         this._localTime = `${weekday}, ${time}`;
         this._curHour = date.getHours();
     }
-    // render loader
+    // Render loader
     _renderLoader() {
         const markup = `
             <div class="loader">
@@ -6765,7 +6767,7 @@ class View {
         this._clear();
         this._parentElement.insertAdjacentHTML("afterBegin", markup);
     }
-    // clear parent element
+    // Clear parent element
     _clear() {
         this._parentElement.innerHTML = "";
     }
