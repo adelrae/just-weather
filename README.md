@@ -1,35 +1,9 @@
-# My Awesome Project
+# JustWeather
 
-A brief description of what my project does.
-
-## Table of Contents
-
-- [Getting Started](#getting-started)
-- [Features](#features)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
+JustWeather is a sleek and user-friendly web application developed with JavaScript that provides you with real-time weather information at your fingertips. With an intuitive interface and seamless design, JustWeather allows you to effortlessly check the current weather conditions, temperature, humidity for any location around the world.
 
 ## Getting Started
 
 1. Clone the repository.
 2. Install required dependencies: `npm install`.
 3. Run the project: `npm start`.
-
-## Features
-
-- Feature 1: Description of feature 1.
-- Feature 2: Description of feature 2.
-
-## Contributing
-
-We welcome contributions! Please follow these guidelines...
-
-## Authors
-
-- John Doe
-- Jane Smith
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
