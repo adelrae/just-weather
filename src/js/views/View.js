@@ -59,7 +59,7 @@ export default class View {
     _weatherTypeIcon;
     _alertBox = document.querySelector('.alert-box');
 
-    // render weatherInfo
+    // Render weatherInfo
     _render(data) {
         this._data = data;
 
@@ -70,7 +70,7 @@ export default class View {
         this._parentElement.insertAdjacentHTML('afterbegin', markup);
     }
 
-    // check weather type
+    // Check weather type
     _checkWeatherType(){
         const weatherTypeText = this._data.weatherType.toLowerCase();
         const weatherTypes = Object.entries(this._weatherTypeMapping);
@@ -99,7 +99,7 @@ export default class View {
         })
     }
 
-    // optimize date
+    // Optimize date
     _optimizingDate() {
         const date = new Date(this._data.localTime);
         const options = {
@@ -114,7 +114,7 @@ export default class View {
         this._curHour = date.getHours();
     }
 
-    // render loader
+    // Render loader
     _renderLoader() {
         const markup = `
             <div class="loader">
@@ -148,7 +148,7 @@ export default class View {
         this._parentElement.insertAdjacentHTML('afterBegin', markup);
     }
 
-    // clear parent element
+    // Clear parent element
     _clear() {
         this._parentElement.innerHTML = '';
     }
