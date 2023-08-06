@@ -81,8 +81,6 @@ export default class View {
             const typeDetails = type[1];
 
             if (weatherTypeText.includes(typeText)) {
-                console.log(weatherTypeText, type);
-
                 this._weatherTypeIcon = typeDetails.icon;
 
                 if (this._data.isDay) {
