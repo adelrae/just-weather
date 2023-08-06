@@ -6,6 +6,7 @@ import displayAlertView from './views/displayAlertView.js';
 import 'core-js';
 import 'regenerator-runtime/runtime.js';
 
+// Control user weather info
 const controlUserWeatherInfo = async function() {
     try {
         displayWeatherInfoView._renderLoader();
@@ -19,6 +20,7 @@ const controlUserWeatherInfo = async function() {
     }
 }
 
+// Control search input
 const controlSearchInput = async function() {
     try {
         displayWeatherInfoView._renderLoader();
