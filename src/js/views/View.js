@@ -5,6 +5,51 @@ export default class View {
     _data;
     _localTime;
     _curHour;
+    _weatherTypeMapping = {
+        'cloud': {
+            day: weatherSVGs.morningDayCloudy,
+            night: weatherSVGs.nightCloudy,
+            icon: `${icons}#cloud-icon`
+        },
+        'clear - sunny': {
+            day: weatherSVGs.morningClear,
+            night: weatherSVGs.nightClear,
+            icons: {
+                day: `${icons}#sun-icon`,
+                night: `${icons}#moon-icon`,
+            },
+        },
+        'rain': {
+            day: weatherSVGs.morningDayRainy,
+            night: weatherSVGs.nightRainy,
+            icon: `${icons}#cloud-rain-icon`,
+        },
+        'snow': {
+            day: weatherSVGs.morningDaySnow,
+            night: weatherSVGs.nightSnow,
+            icon: `${icons}#cloud-snow-icon`,
+        },
+        'wind': {
+            day: weatherSVGs.morningDayWind,
+            night: weatherSVGs.nightWind,
+            icon: `${icons}#wind-icon`,
+        },
+        'fogg - mist': {
+            day: weatherSVGs.morningFoggy,
+            night: weatherSVGs.morningFoggy,
+            icon: `${icons}#fogg-icon`,
+        },
+        'thundery': {
+            day: weatherSVGs.morningDayThundery,
+            night: weatherSVGs.nightThundery,
+            icon: `${icons}#cloud-thunder-icon`,
+        },
+        'overcast': {
+            day: weatherSVGs.overcast,
+            night: weatherSVGs.overcast,
+            icon: `${icons}#cloud-icon`,
+        }
+    }
     _weatherTypeSvg;
     _weatherTypeIcon;
     _alertBox = document.querySelector('.alert-box');
@@ -21,78 +66,83 @@ export default class View {
     }
 
     _checkWeatherType(){
-        console.log(weatherSVGs);
         const weatherTypeText = this._data.weatherType.toLowerCase();
 
-        if(this._data.isDay) {
-            if (weatherTypeText.includes('cloud')) {
-                this._weatherTypeSvg = weatherSVGs.morningDayCloudy;
-                this._weatherTypeIcon = `${icons}#cloud-icon`;
-            };
-            if (weatherTypeText.includes('clear') || weatherTypeText.includes('sunny')) {
-                this._weatherTypeSvg = weatherSVGs.morningClear;
-                this._weatherTypeIcon = `${icons}#sun-icon`;
-            };
-            if (weatherTypeText.includes('rain')) {
-                this._weatherTypeSvg = weatherSVGs.morningDayRainy;
-                this._weatherTypeIcon = `${icons}#cloud-rain-icon`;
-            };
-            if (weatherTypeText.includes('snow')) {
-                this._weatherTypeSvg = weatherSVGs.morningDaySnow;
-                this._weatherTypeIcon = `${icons}#cloud-snow-icon`;
-            };
-            if (weatherTypeText.includes('wind')) {
-                this._weatherTypeSvg = weatherSVGs.morningDayWind;
-                this._weatherTypeIcon = `${icons}#wind-icon`;
-            };
-            if (weatherTypeText.includes('fogg') || weatherTypeText.includes('mist')) {
-                this._weatherTypeSvg = weatherSVGs.morningFoggy;
-                this._weatherTypeIcon = `${icons}#fogg-icon`;
-            };
-            if (weatherTypeText.includes('thundery')) {
-                this._weatherTypeSvg = weatherSVGs.morningDayThundery;
-                this._weatherTypeIcon = `${icons}#cloud-thunder-icon`;
-            };
-            if (weatherTypeText.includes('overcast')) {
-                this._weatherTypeSvg = weatherSVGs.overcast;
-                this._weatherTypeIcon = `${icons}#cloud-icon`;
-            };
+        for (type in Object.entries(this._weatherTypeMapping)) {
+            console.log(type);
+        };
+        // console.log(this._weatherTypeMapping);
 
-        } else {
 
-            if (weatherTypeText.includes('cloud')) {
-                this._weatherTypeSvg = weatherSVGs.nightCloudy;
-                this._weatherTypeIcon = `${icons}#cloud-icon`;
-            };
-            if (weatherTypeText.includes('clear')) {
-                this._weatherTypeSvg = weatherSVGs.nightClear;
-                this._weatherTypeIcon = `${icons}#moon-icon`;
-            };
-            if (weatherTypeText.includes('rain')) {
-                this._weatherTypeSvg = weatherSVGs.nightRainy;
-                this._weatherTypeIcon = `${icons}#cloud-rain-icon`;
-            };
-            if (weatherTypeText.includes('snow')) {
-                this._weatherTypeSvg = weatherSVGs.nightSnow;
-                this._weatherTypeIcon = `${icons}#cloud-snow-icon`;
-            };
-            if (weatherTypeText.includes('wind')) {
-                this._weatherTypeSvg = weatherSVGs.nightWind;
-                this._weatherTypeIcon = `${icons}#wind-icon`;
-            };
-            if (weatherTypeText.includes('fogg') || weatherTypeText.includes('mist')) {
-                this._weatherTypeSvg = weatherSVGs.morningFoggy;
-                this._weatherTypeIcon = `${icons}#fogg-icon`;
-            };
-            if (weatherTypeText.includes('thundery')) {
-                this._weatherTypeSvg = weatherSVGs.nightThundery;
-                this._weatherTypeIcon = `${icons}#cloud-thunder-icon`;
-            };
-            if (weatherTypeText.includes('overcast')) {
-                this._weatherTypeSvg = weatherSVGs.overcast;
-                this._weatherTypeIcon = `${icons}#cloud-icon`;
-            };
-        }
+        // if(this._data.isDay) {
+        //     if (weatherTypeText.includes('cloud')) {
+        //         this._weatherTypeSvg = weatherSVGs.morningDayCloudy;
+        //         this._weatherTypeIcon = `${icons}#cloud-icon`;
+        //     };
+        //     if (weatherTypeText.includes('clear') || weatherTypeText.includes('sunny')) {
+        //         this._weatherTypeSvg = weatherSVGs.morningClear;
+        //         this._weatherTypeIcon = `${icons}#sun-icon`;
+        //     };
+        //     if (weatherTypeText.includes('rain')) {
+        //         this._weatherTypeSvg = weatherSVGs.morningDayRainy;
+        //         this._weatherTypeIcon = `${icons}#cloud-rain-icon`;
+        //     };
+        //     if (weatherTypeText.includes('snow')) {
+        //         this._weatherTypeSvg = weatherSVGs.morningDaySnow;
+        //         this._weatherTypeIcon = `${icons}#cloud-snow-icon`;
+        //     };
+        //     if (weatherTypeText.includes('wind')) {
+        //         this._weatherTypeSvg = weatherSVGs.morningDayWind;
+        //         this._weatherTypeIcon = `${icons}#wind-icon`;
+        //     };
+        //     if (weatherTypeText.includes('fogg') || weatherTypeText.includes('mist')) {
+        //         this._weatherTypeSvg = weatherSVGs.morningFoggy;
+        //         this._weatherTypeIcon = `${icons}#fogg-icon`;
+        //     };
+        //     if (weatherTypeText.includes('thundery')) {
+        //         this._weatherTypeSvg = weatherSVGs.morningDayThundery;
+        //         this._weatherTypeIcon = `${icons}#cloud-thunder-icon`;
+        //     };
+        //     if (weatherTypeText.includes('overcast')) {
+        //         this._weatherTypeSvg = weatherSVGs.overcast;
+        //         this._weatherTypeIcon = `${icons}#cloud-icon`;
+        //     };
+
+        // } else {
+
+        //     if (weatherTypeText.includes('cloud')) {
+        //         this._weatherTypeSvg = weatherSVGs.nightCloudy;
+        //         this._weatherTypeIcon = `${icons}#cloud-icon`;
+        //     };
+        //     if (weatherTypeText.includes('clear')) {
+        //         this._weatherTypeSvg = weatherSVGs.nightClear;
+        //         this._weatherTypeIcon = `${icons}#moon-icon`;
+        //     };
+        //     if (weatherTypeText.includes('rain')) {
+        //         this._weatherTypeSvg = weatherSVGs.nightRainy;
+        //         this._weatherTypeIcon = `${icons}#cloud-rain-icon`;
+        //     };
+        //     if (weatherTypeText.includes('snow')) {
+        //         this._weatherTypeSvg = weatherSVGs.nightSnow;
+        //         this._weatherTypeIcon = `${icons}#cloud-snow-icon`;
+        //     };
+        //     if (weatherTypeText.includes('wind')) {
+        //         this._weatherTypeSvg = weatherSVGs.nightWind;
+        //         this._weatherTypeIcon = `${icons}#wind-icon`;
+        //     };
+        //     if (weatherTypeText.includes('fogg') || weatherTypeText.includes('mist')) {
+        //         this._weatherTypeSvg = weatherSVGs.morningFoggy;
+        //         this._weatherTypeIcon = `${icons}#fogg-icon`;
+        //     };
+        //     if (weatherTypeText.includes('thundery')) {
+        //         this._weatherTypeSvg = weatherSVGs.nightThundery;
+        //         this._weatherTypeIcon = `${icons}#cloud-thunder-icon`;
+        //     };
+        //     if (weatherTypeText.includes('overcast')) {
+        //         this._weatherTypeSvg = weatherSVGs.overcast;
+        //         this._weatherTypeIcon = `${icons}#cloud-icon`;
+        //     };
+        // }
     }
 
     _optimizingDate() {
