@@ -1,76 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" href="/src/images/favicon.png">
-    <link rel="stylesheet" href="/src/scss/main.scss">
+    <link rel="icon" href="/src/images/favicon.png" />
+    <link rel="stylesheet" href="/src/scss/main.scss" />
 
     <script defer type="module" src="/src/js/controller.js"></script>
 
     <title>JustWeather</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app" class="h-w-full">
-        <!-- alert-box -->
-        <div class="alert-box hidden">
-            <div class="alert-content">
-                <span class="alert-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_7_6620)">
-                        <path d="M12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>
-                        <path d="M12 21C14.21 21 16 16.97 16 12C16 7.03 14.21 3 12 3C9.79 3 8 7.03 8 12C8 16.97 9.79 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>
-                        <path d="M3 11.58C8.95 12.68 15.05 12.68 21 11.58" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>
-                        </g>
-                        <defs>
-                        <clipPath id="clip0_7_6620">
-                        <rect width="24" height="24" fill="white"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
-                </span>
-                <div class="alert-details">
-                    <div class="alert-title">Oops</div>
-                    <span class="alert-desc">Something is wrong with your connection!</span>
-                </div>
-            </div>
-            <button class="close-alert">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_7_6853)">
-                    <path d="M6 18L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M18 18L6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </g>
-                    <defs>
-                    <clipPath id="clip0_7_6853">
-                    <rect width="24" height="24" fill="white"/>
-                    </clipPath>
-                    </defs>
-                </svg>
-            </button>
+      <!-- alert-box -->
+      <div class="alert-box hidden">
+        <div class="alert-content">
+          <span class="alert-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_7_6620)">
+                <path
+                  d="M12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                />
+                <path
+                  d="M12 21C14.21 21 16 16.97 16 12C16 7.03 14.21 3 12 3C9.79 3 8 7.03 8 12C8 16.97 9.79 21 12 21Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                />
+                <path
+                  d="M3 11.58C8.95 12.68 15.05 12.68 21 11.58"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_7_6620">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </span>
+          <div class="alert-details">
+            <div class="alert-title">Oops</div>
+            <span class="alert-desc"
+              >Something is wrong with your connection!</span
+            >
+          </div>
         </div>
-        <div class="main-content h-w-full">
-            <div class="container">
-                <div class="flex-container">
-                    <!-- nav -->
-                    <nav class="nav">
-                        <a href="#" class="logo">
-                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="18" cy="18" r="18" fill="currentColor"/>
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.389 24.3334C24.0709 24.3334 27.0556 21.3486 27.0556 17.6667C27.0556 13.9848 24.0709 11 20.389 11C17.5724 11 15.1638 12.7467 14.1872 15.2159C13.7149 15.0557 13.2087 14.9688 12.6822 14.9688C10.0963 14.9688 8 17.0651 8 19.651C8 22.2369 10.0963 24.3332 12.6822 24.3332L19.5174 24.3334C19.6186 24.3334 19.7189 24.3252 19.8174 24.3092C20.0058 24.3252 20.1964 24.3334 20.389 24.3334ZM16.1578 22.8189C16.1526 22.8145 16.1473 22.8102 16.1421 22.8058C16.1319 22.817 16.1217 22.828 16.1115 22.8391L16.1578 22.8189Z" fill="url(#paint0_linear_5605_4)"/>
-                                <defs>
-                                <linearGradient id="paint0_linear_5605_4" x1="23.2153" y1="11.7915" x2="-0.972167" y2="37.168" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="white"/>
-                                <stop offset="1" stop-color="#FCFCFD" stop-opacity="0.75"/>
-                                </linearGradient>
-                                </defs>
-                            </svg>
-                            <span>JustWeather</span>
-                        </a>
-                    </nav>
-                    <!-- weather-info -->
-                    <div class="weather-info">
-                        <!-- <div class="loader">
+        <button class="close-alert">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_7_6853)">
+              <path
+                d="M6 18L18 6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18 18L6 6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_7_6853">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+      </div>
+      <div class="main-content h-w-full">
+        <div class="container">
+          <div class="flex-container">
+            <!-- nav -->
+            <nav class="nav">
+              <a href="#" class="logo">
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="18" cy="18" r="18" fill="currentColor" />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20.389 24.3334C24.0709 24.3334 27.0556 21.3486 27.0556 17.6667C27.0556 13.9848 24.0709 11 20.389 11C17.5724 11 15.1638 12.7467 14.1872 15.2159C13.7149 15.0557 13.2087 14.9688 12.6822 14.9688C10.0963 14.9688 8 17.0651 8 19.651C8 22.2369 10.0963 24.3332 12.6822 24.3332L19.5174 24.3334C19.6186 24.3334 19.7189 24.3252 19.8174 24.3092C20.0058 24.3252 20.1964 24.3334 20.389 24.3334ZM16.1578 22.8189C16.1526 22.8145 16.1473 22.8102 16.1421 22.8058C16.1319 22.817 16.1217 22.828 16.1115 22.8391L16.1578 22.8189Z"
+                    fill="url(#paint0_linear_5605_4)"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="paint0_linear_5605_4"
+                      x1="23.2153"
+                      y1="11.7915"
+                      x2="-0.972167"
+                      y2="37.168"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stop-color="white" />
+                      <stop
+                        offset="1"
+                        stop-color="#FCFCFD"
+                        stop-opacity="0.75"
+                      />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <span>JustWeather</span>
+              </a>
+            </nav>
+            <!-- weather-info -->
+            <div class="weather-info">
+              <!-- <div class="loader">
                             <svg version="1.1" id="L2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
                                 <circle fill="none" stroke="currentColor" stroke-width="4" stroke-miterlimit="10" cx="50" cy="50" r="48"/>
@@ -96,7 +159,7 @@
                                 </line>
                             </svg>
                         </div> -->
-                        <!-- <div class="left-box flex-2 left">
+              <!-- <div class="left-box flex-2 left">
                             <div class="current-temperature">17°</div>
                             <div class="location">
                                 <div class="location-country">
@@ -148,22 +211,44 @@
                                 </div>
                             </div>
                         </div> -->
-                    </div>
-                    <!-- form -->
-                    <form action="">
-                        <div class="search-box">
-                            <input type="text" placeholder="Write the city or country..." class="search-input">
-                            <button class="search-btn">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11 20C15.9706 20 20 15.9706 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </form>
-                </div>
             </div>
+            <!-- form -->
+            <form action="">
+              <div class="search-box">
+                <input
+                  type="text"
+                  placeholder="Write the city or country..."
+                  class="search-input"
+                />
+                <button class="search-btn">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11 20C15.9706 20 20 15.9706 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -1,120 +1,121 @@
 import weatherSVGs from "../weatherSVGs.js";
-import icons from 'url:../../images/icons.svg';
+// import icons from "url:../../images/icons.svg";
 
 export default class View {
-    _data;
-    _localTime;
-    _curHour;
-    _weatherTypeMapping = {
-        'cloud': {
-            day: weatherSVGs.morningDayCloudy,
-            night: weatherSVGs.nightCloudy,
-            icon: `${icons}#cloud-icon`
-        },
-        'clear': {
-            night: weatherSVGs.nightClear,
-            icon: `${icons}#moon-icon`,
-        },
-        'sunny': {
-            day: weatherSVGs.morningClear,
-            icon: `${icons}#sun-icon`,
-        },
-        'rain': {
-            day: weatherSVGs.morningDayRainy,
-            night: weatherSVGs.nightRainy,
-            icon: `${icons}#cloud-rain-icon`,
-        },
-        'snow': {
-            day: weatherSVGs.morningDaySnow,
-            night: weatherSVGs.nightSnow,
-            icon: `${icons}#cloud-snow-icon`,
-        },
-        'wind': {
-            day: weatherSVGs.morningDayWind,
-            night: weatherSVGs.nightWind,
-            icon: `${icons}#wind-icon`,
-        },
-        'fogg': {
-            day: weatherSVGs.morningFoggy,
-            night: weatherSVGs.morningFoggy,
-            icon: `${icons}#fogg-icon`,
-        },
-        'mist': {
-            day: weatherSVGs.morningFoggy,
-            night: weatherSVGs.morningFoggy,
-            icon: `${icons}#fogg-icon`,
-        },
-        'thundery': {
-            day: weatherSVGs.morningDayThundery,
-            night: weatherSVGs.nightThundery,
-            icon: `${icons}#cloud-thunder-icon`,
-        },
-        'overcast': {
-            day: weatherSVGs.overcast,
-            night: weatherSVGs.overcast,
-            icon: `${icons}#cloud-icon`,
+  _data;
+  _localTime;
+  _curHour;
+  _weatherTypeMapping = {
+    cloud: {
+      day: weatherSVGs.morningDayCloudy,
+      night: weatherSVGs.nightCloudy,
+      icon: `#cloud-icon`,
+    },
+    clear: {
+      night: weatherSVGs.nightClear,
+      icon: `#moon-icon`,
+    },
+    sunny: {
+      day: weatherSVGs.morningClear,
+      icon: `#sun-icon`,
+    },
+    rain: {
+      day: weatherSVGs.morningDayRainy,
+      night: weatherSVGs.nightRainy,
+      icon: `#cloud-rain-icon`,
+    },
+    snow: {
+      day: weatherSVGs.morningDaySnow,
+      night: weatherSVGs.nightSnow,
+      icon: `#cloud-snow-icon`,
+    },
+    wind: {
+      day: weatherSVGs.morningDayWind,
+      night: weatherSVGs.nightWind,
+      icon: `#wind-icon`,
+    },
+    fogg: {
+      day: weatherSVGs.morningFoggy,
+      night: weatherSVGs.morningFoggy,
+      icon: `#fogg-icon`,
+    },
+    mist: {
+      day: weatherSVGs.morningFoggy,
+      night: weatherSVGs.morningFoggy,
+      icon: `#fogg-icon`,
+    },
+    thundery: {
+      day: weatherSVGs.morningDayThundery,
+      night: weatherSVGs.nightThundery,
+      icon: `#cloud-thunder-icon`,
+    },
+    overcast: {
+      day: weatherSVGs.overcast,
+      night: weatherSVGs.overcast,
+      icon: `#cloud-icon`,
+    },
+  };
+  _weatherTypeSvg;
+  _weatherTypeIcon;
+  _alertBox = document.querySelector(".alert-box");
+
+  // Render weatherInfo
+  _render(data) {
+    this._data = data;
+
+    const markup = this._generateMarkup();
+    this._clear();
+    this._alertBox.classList.add("hidden");
+
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
+  }
+
+  // Check weather type
+  _checkWeatherType() {
+    const weatherTypeText = this._data.weatherType.toLowerCase();
+    const weatherTypes = Object.entries(this._weatherTypeMapping);
+    console.log(1);
+
+    weatherTypes.forEach((type) => {
+      const typeText = type[0];
+      const typeDetails = type[1];
+
+      if (weatherTypeText.includes(typeText)) {
+        this._weatherTypeIcon = typeDetails.icon;
+
+        if (this._data.isDay) {
+          this._weatherTypeSvg = typeDetails.day;
+        } else {
+          this._weatherTypeSvg = typeDetails.night;
+
+          if (weatherTypeText === "clear") {
+            this._weatherTypeIcon = typeDetails.icon;
+          }
         }
-    }
-    _weatherTypeSvg;
-    _weatherTypeIcon;
-    _alertBox = document.querySelector('.alert-box');
+      }
+    });
+  }
 
-    // Render weatherInfo
-    _render(data) {
-        this._data = data;
+  // Optimize date
+  _optimizingDate() {
+    const date = new Date(this._data.localTime);
+    const options = {
+      hour: "numeric",
+      minute: "numeric",
+    };
 
-        const markup = this._generateMarkup();
-        this._clear();
-        this._alertBox.classList.add('hidden');
+    const weekday = new Intl.DateTimeFormat("en-us", {
+      weekday: "long",
+    }).format(date);
+    const time = new Intl.DateTimeFormat("en-us", options).format(date);
+    this._localTime = `${weekday}, ${time}`;
 
-        this._parentElement.insertAdjacentHTML('afterbegin', markup);
-    }
+    this._curHour = date.getHours();
+  }
 
-    // Check weather type
-    _checkWeatherType(){
-        const weatherTypeText = this._data.weatherType.toLowerCase();
-        const weatherTypes = Object.entries(this._weatherTypeMapping);
-        console.log(1);
-
-        weatherTypes.forEach(type => {
-            const typeText = type[0];
-            const typeDetails = type[1];
-
-            if (weatherTypeText.includes(typeText)) {
-                this._weatherTypeIcon = typeDetails.icon;
-
-                if (this._data.isDay) {
-                    this._weatherTypeSvg = typeDetails.day;
-
-                } else {
-                    this._weatherTypeSvg = typeDetails.night;
-
-                    if (weatherTypeText === 'clear') {
-                        this._weatherTypeIcon = typeDetails.icon;
-                    }
-                }
-            };
-        })
-    }
-
-    // Optimize date
-    _optimizingDate() {
-        const date = new Date(this._data.localTime);
-        const options = {
-            hour: 'numeric',
-            minute: 'numeric',
-        };
-        
-        const weekday = new Intl.DateTimeFormat('en-us', { weekday: 'long'}).format(date)
-        const time = new Intl.DateTimeFormat('en-us', options).format(date);
-        this._localTime = `${weekday}, ${time}`;
-
-        this._curHour = date.getHours();
-    }
-
-    // Render loader
-    _renderLoader() {
-        const markup = `
+  // Render loader
+  _renderLoader() {
+    const markup = `
             <div class="loader">
                 <svg version="1.1" id="L2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -142,12 +143,12 @@ export default class View {
                 </svg>
             </div>
         `;
-        this._clear();
-        this._parentElement.insertAdjacentHTML('afterBegin', markup);
-    }
+    this._clear();
+    this._parentElement.insertAdjacentHTML("afterBegin", markup);
+  }
 
-    // Clear parent element
-    _clear() {
-        this._parentElement.innerHTML = '';
-    }
+  // Clear parent element
+  _clear() {
+    this._parentElement.innerHTML = "";
+  }
 }

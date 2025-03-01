@@ -1,20 +1,14 @@
 {
   "name": "just-weather",
-  "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "parcel:start": "parcel index.html",
-    "parcel:build": "parcel build index.html"
-  },
-  "author": "Rae",
-  "license": "ISC",
-  "dependencies": {
-    "core-js": "^3.32.0",
-    "parcel": "^2.9.3",
-    "regenerator-runtime": "^0.13.11"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.9.3",
-    "process": "^0.11.10"
+    "vite": "^6.2.0"
   }
 }
